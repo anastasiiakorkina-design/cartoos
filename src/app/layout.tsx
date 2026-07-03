@@ -6,6 +6,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { SITE, dayName } from "@/lib/site";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -30,34 +31,39 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cartoos.co.uk"),
+  metadataBase: new URL(SITE.url),
   title: {
-    default: "CARTOOS — Mediterranean Fire Kitchen | Aberdeen",
-    template: "%s — CARTOOS Aberdeen",
+    default:
+      "Cartoos Aberdeen — Mediterranean Charcoal Grill | Book a Table",
+    template: "%s — Cartoos Aberdeen",
   },
   description:
-    "Mediterranean fire, crafted in Aberdeen. Charcoal-grilled steaks, coastal flavours and forty artisan ice creams — a premium grill house on Union Street.",
+    "Charcoal-grilled Aberdeenshire steaks, North Sea fish and 40+ artisan ice creams on Union Street, Aberdeen. Book a table online or order for delivery and collection.",
   keywords: [
-    "Cartoos",
-    "Aberdeen restaurant",
+    "Cartoos Aberdeen",
+    "restaurant Aberdeen",
     "charcoal grill Aberdeen",
+    "steak restaurant Aberdeen",
     "Mediterranean restaurant Aberdeen",
-    "premium steakhouse Scotland",
+    "book a table Aberdeen",
+    "family restaurant Aberdeen",
     "private dining Aberdeen",
   ],
   openGraph: {
-    title: "CARTOOS — Mediterranean Fire Kitchen",
+    title: "Cartoos — Mediterranean Fire Kitchen, Aberdeen",
     description:
-      "A premium charcoal grill experience where Mediterranean flavours meet modern European elegance. Aberdeen, Scotland.",
+      "Hand-cut steaks, North Sea catch and 40+ artisan ice creams over live charcoal. Book a table on Union Street.",
     locale: "en_GB",
     type: "website",
-    siteName: "CARTOOS",
+    siteName: SITE.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "CARTOOS — Mediterranean Fire Kitchen",
-    description: "Mediterranean fire, crafted in Aberdeen.",
+    title: "Cartoos Aberdeen — Mediterranean Charcoal Grill",
+    description:
+      "Book a table: charcoal-grilled steaks, seafood and 40+ artisan ice creams in Aberdeen.",
   },
+  alternates: { canonical: "/" },
   robots: { index: true, follow: true },
 };
 
@@ -70,20 +76,52 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
-  name: "Cartoos",
-  alternateName: "Cartoos Mediterranean Fire Kitchen",
+  "@id": `${SITE.url}#restaurant`,
+  name: SITE.name,
+  alternateName: `${SITE.name} ${SITE.tagline}`,
+  url: SITE.url,
   servesCuisine: ["Mediterranean", "Charcoal Grill", "Steakhouse"],
-  priceRange: "£££",
+  priceRange: "££-£££",
+  telephone: SITE.phone,
+  email: SITE.email,
+  menu: `${SITE.url}/menu`,
+  acceptsReservations: "True",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "463 Union Street",
-    addressLocality: "Aberdeen",
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.city,
     addressRegion: "Scotland",
-    postalCode: "AB11 6DB",
-    addressCountry: "GB",
+    postalCode: SITE.address.postcode,
+    addressCountry: SITE.address.country,
   },
-  telephone: "+44 1224 000 000",
-  acceptsReservations: "True",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: SITE.geo.lat,
+    longitude: SITE.geo.lng,
+  },
+  hasMap: SITE.mapsUrl,
+  sameAs: [SITE.instagram],
+  openingHoursSpecification: SITE.hours.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: h.days.map((d) => dayName(d)),
+    opens: h.open,
+    closes: h.close,
+  })),
+  // TODO: keep in sync with the live Google Business Profile figures.
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: SITE.rating.value,
+    reviewCount: SITE.rating.count,
+  },
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE.url}/#reservations`,
+      inLanguage: "en-GB",
+    },
+    result: { "@type": "FoodEstablishmentReservation" },
+  },
 };
 
 export default function RootLayout({
@@ -95,12 +133,14 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${instrumentSans.variable} ${interTight.variable}`}
     >
       <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <SmoothScroll>{children}</SmoothScroll>
-        <div aria-hidden className="grain-page" />
       </body>
     </html>
   );

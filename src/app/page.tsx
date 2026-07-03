@@ -1,60 +1,29 @@
-import { Preloader } from "@/components/preloader";
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/home/hero";
+import { MenuHighlights } from "@/components/home/menu-highlights";
 import { Story } from "@/components/home/story";
-import { Signatures } from "@/components/home/signatures";
-import { FireExperience } from "@/components/home/fire-experience";
-import { ChefSelection } from "@/components/home/chef-selection";
-import { Gallery } from "@/components/home/gallery";
-import { Testimonials } from "@/components/home/testimonials";
+import { Reviews } from "@/components/home/reviews";
+import { Visit } from "@/components/home/visit";
 import { Reservation } from "@/components/home/reservation";
+import { Faq } from "@/components/home/faq";
 import { Footer } from "@/components/footer";
-
-function Marquee() {
-  const words = [
-    "Charcoal",
-    "Stone",
-    "Smoke",
-    "Sea",
-    "Olive",
-    "Fire",
-    "Bronze",
-    "Salt",
-  ];
-  const strip = [...words, ...words];
-  return (
-    <div aria-hidden className="overflow-hidden border-y border-charcoal/10 bg-cream py-5">
-      <div className="animate-marquee flex w-max items-center">
-        {strip.map((w, i) => (
-          <span key={i} className="flex items-center">
-            <span className="type-display px-6 text-2xl italic text-charcoal/50 md:text-3xl">
-              {w}
-            </span>
-            <span className="text-bronze/60">·</span>
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
+import { StickyCta } from "@/components/sticky-cta";
 
 export default function HomePage() {
   return (
     <>
-      <Preloader />
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
+        <MenuHighlights />
         <Story />
-        <Marquee />
-        <Signatures />
-        <FireExperience />
-        <ChefSelection />
-        <Gallery />
-        <Testimonials />
+        <Reviews />
+        <Visit />
         <Reservation />
+        <Faq />
       </main>
       <Footer />
+      <StickyCta />
     </>
   );
 }

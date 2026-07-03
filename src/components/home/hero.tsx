@@ -1,165 +1,122 @@
 "use client";
 
-import { useRef } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import { Embers } from "@/components/embers";
+import { motion, useReducedMotion } from "framer-motion";
+import { SITE } from "@/lib/site";
+import { OpenStatus } from "@/components/open-status";
 import { CtaButton } from "@/components/button";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+function Stars({ value }: { value: number }) {
+  return (
+    <span aria-hidden className="tracking-[0.15em] text-copper-bright">
+      {"★".repeat(Math.round(value))}
+    </span>
+  );
+}
+
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const yType = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
-  const yGlow = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
-  const fade = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-
-  // Mouse-driven depth
-  const mx = useSpring(0, { stiffness: 40, damping: 16 });
-  const my = useSpring(0, { stiffness: 40, damping: 16 });
-  const glowX = useTransform(mx, (v) => v * 22);
-  const glowY = useTransform(my, (v) => v * 14);
-  const typeX = useTransform(mx, (v) => v * -8);
-  const typeY = useTransform(my, (v) => v * -5);
-
-  const onMove = (e: React.MouseEvent) => {
-    if (reduce) return;
-    const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    mx.set(((e.clientX - r.left) / r.width - 0.5) * 2);
-    my.set(((e.clientY - r.top) / r.height - 0.5) * 2);
-  };
-
   return (
-    <section
-      ref={ref}
-      onMouseMove={onMove}
-      className="grain relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink text-cream"
-    >
-      {/* Charcoal glow bed */}
-      <motion.div
+    <section className="grain relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-ink text-cream">
+      {/* Single restrained charcoal glow — brand, not spectacle */}
+      <div
         aria-hidden
-        className="absolute inset-0"
-        style={{ y: yGlow, x: glowX, translateY: glowY }}
-      >
-        <div
-          className="animate-ember absolute inset-x-[-10%] bottom-[-12%] h-[70%]"
-          style={{
-            background:
-              "radial-gradient(58% 60% at 50% 100%, rgba(188,122,75,0.42), rgba(154,106,58,0.16) 52%, transparent 78%)",
-          }}
-        />
-        <div
-          className="absolute inset-x-[10%] bottom-[-6%] h-[38%]"
-          style={{
-            background:
-              "radial-gradient(45% 55% at 50% 100%, rgba(217,154,104,0.28), transparent 72%)",
-          }}
-        />
-        {/* Drifting smoke veils */}
-        <div
-          className="animate-drift absolute left-[8%] top-[18%] h-[55%] w-[45%] rounded-full opacity-[0.07] blur-3xl"
-          style={{ background: "#d9c9b5" }}
-        />
-        <div
-          className="animate-drift-slow absolute right-[4%] top-[30%] h-[50%] w-[40%] rounded-full opacity-[0.05] blur-3xl"
-          style={{ background: "#a8a49b" }}
-        />
-      </motion.div>
+        className="absolute inset-x-[-10%] bottom-[-12%] h-[60%]"
+        style={{
+          background:
+            "radial-gradient(58% 60% at 50% 100%, rgba(188,122,75,0.34), rgba(154,106,58,0.12) 55%, transparent 80%)",
+        }}
+      />
 
-      <Embers density={34} />
-
-      {/* Composition */}
-      <motion.div
-        className="relative z-10 mx-auto w-full max-w-[1680px] px-6 pb-14 pt-36 md:px-10 md:pb-20"
-        style={{ opacity: fade, y: yType }}
-      >
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-12 pt-32 md:px-10 md:pb-16">
         <motion.p
-          className="type-eyebrow mb-8 text-copper-bright md:mb-12"
+          className="type-eyebrow mb-7 text-copper-bright"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2.5 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
         >
-          Aberdeen · Est. on charcoal
+          Charcoal grill · {SITE.address.street}, Aberdeen
         </motion.p>
 
-        <motion.h1
-          className="type-display text-display-xl"
-          style={reduce ? undefined : { x: typeX, y: typeY }}
-        >
-          {["Mediterranean", "Fire."].map((line, i) => (
-            <span key={line} className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
-              <motion.span
-                className="block"
-                initial={reduce ? false : { y: "108%" }}
-                animate={{ y: "0%" }}
-                transition={{ duration: 1.2, delay: 2.3 + i * 0.14, ease: EASE }}
-              >
-                {line}
-              </motion.span>
-            </span>
-          ))}
+        <h1 className="type-display max-w-5xl text-[clamp(3rem,8.5vw,8rem)]">
+          <span className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
+            <motion.span
+              className="block"
+              initial={reduce ? false : { y: "108%" }}
+              animate={{ y: "0%" }}
+              transition={{ duration: 1, delay: 0.15, ease: EASE }}
+            >
+              Mediterranean fire,
+            </motion.span>
+          </span>
           <span className="block overflow-hidden pb-[0.12em] -mb-[0.06em]">
             <motion.span
               className="block italic text-sand"
               initial={reduce ? false : { y: "108%" }}
               animate={{ y: "0%" }}
-              transition={{ duration: 1.2, delay: 2.58, ease: EASE }}
+              transition={{ duration: 1, delay: 0.28, ease: EASE }}
             >
-              Crafted in Aberdeen.
+              crafted in Aberdeen.
             </motion.span>
           </span>
-        </motion.h1>
+        </h1>
 
         <motion.div
-          className="mt-12 flex flex-col items-start justify-between gap-10 md:mt-16 md:flex-row md:items-end"
-          initial={reduce ? false : { opacity: 0, y: 24 }}
+          className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 3, ease: EASE }}
+          transition={{ duration: 0.9, delay: 0.5, ease: EASE }}
         >
-          <p className="max-w-sm font-grotesk text-base font-light leading-relaxed text-cream/70">
-            A premium charcoal grill where Mediterranean flavours meet modern
-            European elegance — steak, smoke and sea, in the heart of the
-            Granite City.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <CtaButton href="/#reservations" solid>
-              Book a Table
-            </CtaButton>
-            <CtaButton href="/menu" tone="dark">
-              Explore Menu
-            </CtaButton>
+          <div className="max-w-md">
+            <p className="font-grotesk text-base font-light leading-relaxed text-cream/70">
+              Hand-cut Aberdeenshire steaks, North Sea fish and forty artisan
+              ice creams — cooked over live charcoal, seven days a week.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <CtaButton href="#reservations" solid>
+                Book a Table
+              </CtaButton>
+              <CtaButton href="/menu" tone="dark">
+                View Menu
+              </CtaButton>
+            </div>
           </div>
-        </motion.div>
-      </motion.div>
 
-      {/* Scroll cue */}
-      <motion.div
-        aria-hidden
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:block"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 3.6, duration: 1 }}
-        style={{ opacity: fade }}
-      >
-        <div className="h-14 w-px overflow-hidden bg-cream/15">
-          <motion.div
-            className="h-1/2 w-full bg-copper-bright"
-            animate={reduce ? undefined : { y: ["-100%", "220%"] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
-      </motion.div>
+          {/* Trust strip — proof, status, action */}
+          <dl className="flex flex-col gap-3 border-l border-cream/15 pl-6 font-grotesk text-sm font-light text-cream/75">
+            <div>
+              <dt className="sr-only">Google rating</dt>
+              <dd>
+                <a
+                  href={SITE.reviewsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-line"
+                >
+                  <Stars value={SITE.rating.value} /> {SITE.rating.value} ·{" "}
+                  {SITE.rating.count}+ Google reviews
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="sr-only">Opening status</dt>
+              <dd>
+                <OpenStatus />
+              </dd>
+            </div>
+            <div>
+              <dt className="sr-only">Phone</dt>
+              <dd>
+                <a href={`tel:${SITE.phone}`} className="link-line">
+                  Call {SITE.phoneDisplay}
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </motion.div>
+      </div>
     </section>
   );
 }

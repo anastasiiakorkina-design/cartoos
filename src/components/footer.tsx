@@ -1,27 +1,20 @@
 import Link from "next/link";
-import { RevealRule } from "@/components/reveal";
-
-const HOURS = [
-  ["Monday — Thursday", "12:00 — 22:00"],
-  ["Friday — Saturday", "12:00 — 23:00"],
-  ["Sunday", "12:30 — 21:30"],
-];
+import { SITE } from "@/lib/site";
+import { MenuQr } from "@/components/menu-qr";
 
 export function Footer() {
   return (
-    <footer id="contact" className="relative bg-ink text-cream">
-      <div className="mx-auto max-w-[1680px] px-6 pb-10 pt-24 md:px-10 md:pt-32">
-        <div className="grid gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <p className="type-eyebrow text-copper-bright">
-              Mediterranean Fire Kitchen
-            </p>
-            <p className="type-display mt-6 max-w-md text-display-sm text-cream/90">
-              The table is set. The fire is lit.
+    <footer className="relative bg-ink text-cream">
+      <div className="mx-auto max-w-[1400px] px-6 pb-28 pt-20 md:px-10 md:pb-10 md:pt-28">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="type-display text-3xl">CARTOOS</p>
+            <p className="type-eyebrow mt-3 text-copper-bright">
+              {SITE.tagline}
             </p>
             <Link
               href="/#reservations"
-              className="link-line type-eyebrow mt-10 inline-block text-cream"
+              className="link-line type-eyebrow mt-8 inline-block text-cream"
             >
               Book a Table
             </Link>
@@ -29,20 +22,31 @@ export function Footer() {
 
           <div className="lg:col-span-3">
             <p className="type-eyebrow text-cream/40">Visit</p>
-            <address className="mt-6 space-y-1 font-grotesk text-sm font-light not-italic leading-relaxed text-cream/75">
-              <p>463 Union Street</p>
-              <p>Aberdeen, AB11 6DB</p>
-              <p>Scotland</p>
-            </address>
-            <div className="mt-6 space-y-1 font-grotesk text-sm font-light text-cream/75">
+            <address className="mt-5 space-y-1 font-grotesk text-sm font-light not-italic leading-relaxed text-cream/75">
+              <p>{SITE.address.street}</p>
               <p>
-                <a href="tel:+441224000000" className="link-line">
-                  +44 (0) 1224 000 000
+                {SITE.address.city}, {SITE.address.postcode}
+              </p>
+            </address>
+            <div className="mt-4 space-y-1 font-grotesk text-sm font-light text-cream/75">
+              <p>
+                <a href={`tel:${SITE.phone}`} className="link-line">
+                  {SITE.phoneDisplay}
                 </a>
               </p>
               <p>
-                <a href="mailto:reservations@cartoos.co.uk" className="link-line">
-                  reservations@cartoos.co.uk
+                <a href={`mailto:${SITE.email}`} className="link-line">
+                  {SITE.email}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={SITE.mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-line"
+                >
+                  Get directions
                 </a>
               </p>
             </div>
@@ -50,29 +54,19 @@ export function Footer() {
 
           <div className="lg:col-span-2">
             <p className="type-eyebrow text-cream/40">Hours</p>
-            <ul className="mt-6 space-y-3 font-grotesk text-sm font-light text-cream/75">
-              {HOURS.map(([d, h]) => (
-                <li key={d}>
-                  <span className="block text-cream/45">{d}</span>
-                  {h}
+            <ul className="mt-5 space-y-3 font-grotesk text-sm font-light text-cream/75">
+              {SITE.hours.map((h) => (
+                <li key={h.label}>
+                  <span className="block text-cream/45">{h.label}</span>
+                  {h.open} — {h.close}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
-            <p className="type-eyebrow text-cream/40">Follow</p>
-            <ul className="mt-6 space-y-3 font-grotesk text-sm font-light text-cream/75">
-              <li>
-                <a
-                  href="https://instagram.com/cartoos.aberdeen"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="link-line"
-                >
-                  Instagram
-                </a>
-              </li>
+          <div className="lg:col-span-1">
+            <p className="type-eyebrow text-cream/40">Explore</p>
+            <ul className="mt-5 space-y-3 font-grotesk text-sm font-light text-cream/75">
               <li>
                 <Link href="/menu" className="link-line">
                   Menu
@@ -83,24 +77,52 @@ export function Footer() {
                   Private Dining
                 </Link>
               </li>
+              <li>
+                <a
+                  href={SITE.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-line"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE.reviewsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-line"
+                >
+                  Reviews
+                </a>
+              </li>
             </ul>
+          </div>
+
+          {/* QR menu */}
+          <div className="lg:col-span-2">
+            <p className="type-eyebrow text-cream/40">Menu on your phone</p>
+            <div className="mt-5 inline-block bg-cream p-3">
+              <MenuQr className="h-24 w-24 [&_svg]:h-full [&_svg]:w-full" />
+            </div>
+            <p className="mt-3 max-w-[12rem] font-grotesk text-xs font-light leading-relaxed text-cream/50">
+              Scan to browse the menu.{" "}
+              <Link href="/menu/qr" className="link-line text-cream/75">
+                Printable table cards →
+              </Link>
+            </p>
           </div>
         </div>
 
-        {/* Large wordmark */}
-        <div className="mt-24 overflow-hidden md:mt-32">
-          <p
-            aria-hidden
-            className="type-display select-none whitespace-nowrap text-center text-[clamp(4rem,14.5vw,15rem)] leading-none text-cream/[0.14]"
-          >
-            CARTOOS
-          </p>
-        </div>
-
-        <RevealRule className="mt-6 w-full text-cream" />
-        <div className="mt-6 flex flex-col items-start justify-between gap-3 font-grotesk text-xs font-light text-cream/40 md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Cartoos Ltd. Aberdeen, Scotland.</p>
-          <p>Charcoal · Stone · Smoke · Sea</p>
+        <div className="mt-16 border-t border-cream/10 pt-6">
+          <div className="flex flex-col items-start justify-between gap-3 font-grotesk text-xs font-light text-cream/40 md:flex-row md:items-center">
+            <p>
+              © {new Date().getFullYear()} {SITE.name} Ltd. {SITE.address.city},
+              Scotland.
+            </p>
+            <p>Charcoal · Stone · Smoke · Sea</p>
+          </div>
         </div>
       </div>
     </footer>

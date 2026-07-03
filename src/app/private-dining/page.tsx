@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
-import { Plate } from "@/components/plate";
+import { Photo } from "@/components/photo";
 import { Reveal, RevealLines, RevealRule } from "@/components/reveal";
 import { CtaButton } from "@/components/button";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Private Dining",
   description:
     "The Ember Room — private dining for 8 to 24 guests at Cartoos Aberdeen. Business dinners, celebrations and chef's table experiences.",
+  alternates: { canonical: "/private-dining" },
 };
 
 const OCCASIONS = [
@@ -36,7 +38,7 @@ export default function PrivateDiningPage() {
   return (
     <>
       <Nav />
-      <main className="bg-charcoal-warm text-cream">
+      <main id="main" className="bg-charcoal-warm text-cream">
         <header className="relative overflow-hidden pb-20 pt-40 md:pb-28 md:pt-52">
           <div className="mx-auto max-w-[1680px] px-6 md:px-10">
             <Reveal>
@@ -60,13 +62,13 @@ export default function PrivateDiningPage() {
         <section className="mx-auto max-w-[1680px] px-6 pb-16 md:px-10">
           <div className="grid gap-4 md:grid-cols-3 md:gap-6">
             <Reveal y={50}>
-              <Plate variant="smoke" label="Candlelit private dining room" className="aspect-[3/4] w-full" />
+              <Photo variant="smoke" shot="The Ember Room set for dinner, candlelit" alt="Candlelit private dining room" className="aspect-[3/4] w-full" />
             </Reveal>
             <Reveal y={70} delay={0.1} className="md:mt-16">
-              <Plate variant="steak" label="Côte de boeuf carved at the table" className="aspect-[3/4] w-full" />
+              <Photo variant="steak" shot="Côte de boeuf carved tableside" alt="Côte de boeuf carved at the table" className="aspect-[3/4] w-full" />
             </Reveal>
             <Reveal y={50} delay={0.2}>
-              <Plate variant="olive" label="Olive branches on the private table" className="aspect-[3/4] w-full" />
+              <Photo variant="olive" shot="Table detail — olive branches, linen, glassware" alt="Olive branches on the private table" className="aspect-[3/4] w-full" />
             </Reveal>
           </div>
         </section>
@@ -97,9 +99,17 @@ export default function PrivateDiningPage() {
               Tell us the occasion —{" "}
               <em className="text-sand">we&rsquo;ll build the evening.</em>
             </p>
-            <CtaButton href="/#reservations" solid className="shrink-0">
-              Enquire Now
-            </CtaButton>
+            <div className="flex shrink-0 flex-wrap items-center gap-6">
+              <CtaButton href="/#reservations" solid>
+                Enquire Now
+              </CtaButton>
+              <a
+                href={`tel:${SITE.phone}`}
+                className="link-line type-eyebrow text-cream"
+              >
+                or call {SITE.phoneDisplay}
+              </a>
+            </div>
           </Reveal>
         </section>
       </main>

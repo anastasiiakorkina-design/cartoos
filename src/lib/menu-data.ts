@@ -1,10 +1,14 @@
 import type { PlateVariant } from "@/components/plate";
 
+export type DietaryTag = "V" | "VG" | "GF" | "N";
+
 export type MenuItem = {
   name: string;
   description: string;
   price: string;
   signature?: boolean;
+  /** V vegetarian · VG vegan · GF gluten-free · N contains nuts */
+  tags?: DietaryTag[];
 };
 
 export type MenuCategory = {
@@ -26,22 +30,26 @@ export const MENU: MenuCategory[] = [
         name: "Charred Padrón & Smoked Salt",
         description: "Blistered over embers, finished with lemon oil",
         price: "7",
+        tags: ["V", "VG", "GF"],
       },
       {
         name: "Whipped Feta, Burnt Honey",
         description: "Warm stone-oven flatbread, oregano, cracked pepper",
         price: "9",
+        tags: ["V"],
         signature: true,
       },
       {
         name: "Ember Aubergine",
         description: "Buried in warm ash, tahini, pomegranate, dukkah",
         price: "9.5",
+        tags: ["V", "VG", "N"],
       },
       {
         name: "Hand-Dived Scallops",
         description: "Grilled in the shell, seaweed butter, charred lemon",
         price: "14",
+        tags: ["GF"],
       },
       {
         name: "Beef Tartare, Fire Toast",
@@ -60,17 +68,20 @@ export const MENU: MenuCategory[] = [
         name: "Half Chicken, Harissa & Lemon",
         description: "Brined overnight, grilled under a brick, garlic yoghurt",
         price: "18",
+        tags: ["GF"],
       },
       {
         name: "Lamb Chops, Wild Thyme",
         description: "Scottish lamb, charred shallot, smoked sea salt",
         price: "26",
+        tags: ["GF"],
         signature: true,
       },
       {
         name: "Iberico Presa",
         description: "Acorn-fed pork, quince, olive jus",
         price: "24",
+        tags: ["GF"],
       },
       {
         name: "Skewer of the Day",
@@ -89,28 +100,33 @@ export const MENU: MenuCategory[] = [
         name: "Fillet, 8oz",
         description: "The quiet one — dense, clean, butter-soft",
         price: "34",
+        tags: ["GF"],
       },
       {
         name: "Ribeye, 12oz",
         description: "Our kitchen's favourite; fire loves the fat",
         price: "36",
+        tags: ["GF"],
         signature: true,
       },
       {
         name: "Sirloin, 10oz",
         description: "Classic cut, deep char, smoked salt",
         price: "31",
+        tags: ["GF"],
       },
       {
         name: "Côte de Boeuf, 32oz",
         description: "For two, carved at the table, charred shallots",
         price: "78",
+        tags: ["GF"],
         signature: true,
       },
       {
         name: "Chateaubriand, 20oz",
         description: "For two, ember vegetables, two sauces",
         price: "72",
+        tags: ["GF"],
       },
     ],
   },
@@ -124,17 +140,20 @@ export const MENU: MenuCategory[] = [
         name: "Whole Sea Bream",
         description: "On the bone, charred lemon, wild oregano oil",
         price: "24",
+        tags: ["GF"],
         signature: true,
       },
       {
         name: "Monkfish Tail",
         description: "Wrapped in vine leaves, saffron butter",
         price: "27",
+        tags: ["GF"],
       },
       {
         name: "Grilled Octopus",
         description: "Slow-cooked then fired, smoked paprika, olive crumb",
         price: "19",
+        tags: ["GF"],
       },
       {
         name: "Catch of the Day",
@@ -153,16 +172,19 @@ export const MENU: MenuCategory[] = [
         name: "Za'atar Flatbread",
         description: "Slow-fermented dough, first-press olive oil",
         price: "5.5",
+        tags: ["V", "VG"],
       },
       {
         name: "Wood Roast Cauliflower",
         description: "Whole, smoked yoghurt, hazelnut, brown butter",
         price: "14",
+        tags: ["V", "GF", "N"],
       },
       {
         name: "Giant Beans, Tomato & Dill",
         description: "Baked in clay, feta, warm bread",
         price: "11",
+        tags: ["V", "GF"],
       },
     ],
   },
@@ -176,28 +198,33 @@ export const MENU: MenuCategory[] = [
         name: "Artisan Gelato, Three Scoops",
         description: "From today's forty — pistachio to smoked honey",
         price: "8",
+        tags: ["V", "GF"],
         signature: true,
       },
       {
         name: "Burnt Basque Cheesecake",
         description: "From the stone oven, heather honey",
         price: "9",
+        tags: ["V"],
       },
       {
         name: "Chocolate & Olive Oil",
         description: "Warm dark chocolate pot, smoked salt, sourdough crisp",
         price: "9.5",
+        tags: ["V"],
       },
       {
         name: "Charred Peach Melba",
         description: "Grilled stone fruit, vanilla gelato, raspberry",
         price: "9",
+        tags: ["V", "GF"],
         signature: true,
       },
       {
         name: "The Family Board",
         description: "Six flavours, warm doughnuts, sauces — arrives by robot",
         price: "22",
+        tags: ["V"],
       },
     ],
   },

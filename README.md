@@ -1,58 +1,67 @@
 # CARTOOS — Mediterranean Fire Kitchen
 
-A luxury brand transformation for Cartoos Aberdeen: a premium charcoal grill
-experience where Mediterranean flavours meet modern European elegance.
-Editorial typography, cinematic motion, and a fully self-contained visual
-system — closer to a Michelin-inspired grill house than a takeaway.
+Production-focused website for Cartoos Aberdeen: a premium charcoal grill
+on Union Street. Editorial design in the spirit of HIDE London / The Ivy,
+built so every section either builds trust, showcases food, answers a
+question, or drives a booking.
 
-## Brand system
+## What's here
 
-| Token | Value | Role |
-| --- | --- | --- |
-| Deep Olive | `#30362F` | Grounding green, signature sections |
-| Warm Cream | `#F6F2EA` | Editorial canvas |
-| Charcoal Black | `#181818` | Cinematic grounds |
-| Burnt Bronze | `#9A6A3A` | Serif accents, warmth |
-| Copper | `#BC7A4B` | The accent — buttons, embers, heat |
-| Soft Sand | `#D9C9B5` | Italic display lines, captions |
-| Muted Sage | `#8A9278` | Olive-grove tones |
+**Conversion surface**
+- Reservation flow: validated form → `POST /api/reservations` → reference +
+  confirmation state, with phone fallback throughout
+- Sticky mobile Call / Book bar (hides while the form is on screen)
+- Click-to-call everywhere (`tel:`), live "Open now / opens at" status
+  computed in Europe/London time
+- Order-online strip with delivery partner links
+- Google Maps embed + directions link, opening hours, parking answers
+- Google-style reviews section + rating in the hero trust strip
+- FAQ accordion (native `<details>`) with FAQPage structured data
 
-**Typography** — Instrument Serif (editorial display, in the spirit of
-Canela / PP Editorial New), Inter Tight (grotesk eyebrows and body detail),
-Instrument Sans (body). Massive clamp-based display scale, 0.32em-tracked
-uppercase eyebrows.
+**QR menu (new)**
+- `src/components/menu-qr.tsx` — server-rendered QR SVG linking to
+  `/menu?src=qr` (scan attribution), zero client JS
+- `/menu/qr` — printable A4 sheet of four table cards (print styles
+  included); QR also appears in the footer
+- Menu deep links (`/menu#steaks`) and hash changes select the right
+  category
 
-**Imagery** — every "photograph" is generative: art-directed SVG
-compositions of blurred light and colour in the brand palette
-(`src/components/plate.tsx`), layered with film grain and a live ember
-canvas (`src/components/embers.tsx`). No stock photography, no external
-assets, zero layout shift.
+**Menu experience**
+- Six categories with animated switching, dietary tags (V/VG/GF/N) and
+  dietary filtering, signature markers, price leaders
 
-## Experience
+**SEO & accessibility**
+- Restaurant JSON-LD (hours, geo, rating, ReserveAction), FAQPage JSON-LD,
+  canonical URLs, sitemap, robots
+- Skip link, visible focus states, labelled forms, `aria-pressed`
+  filters, `prefers-reduced-motion` support, WCAG AA-minded contrast
 
-- Opening sequence: wordmark rises over glowing charcoal, curtain lifts
-- Hero with mouse-driven depth, drifting smoke, rising embers
-- Editorial story section, magazine split layout
-- Three signature experiences with masked hover reveals
-- The Fire Experience: animated statistics over a live charcoal bed
-- Chef Selection: pinned horizontal scroll with origin/fire/ingredient cards
-- Gallery: parallax masonry columns with hover captions
-- Testimonials, luxury reservation form with copper detailing
-- Interactive menu (`/menu`) — six chapters, category filtering, deep links
-- Private dining (`/private-dining`) — chef's table, Ember Room, takeovers
+**Photography**
+- Real images pending: every slot renders a clearly labelled placeholder
+  (in-brand generative art, never stock). Shot list: `PHOTOGRAPHY.md`.
+
+## Launch checklist
+
+Search the codebase for `TODO` — all placeholders live in
+`src/lib/site.ts` (phone, exact address/geo, Instagram, delivery partner
+URLs, review figures) and `src/lib/reviews.ts` (replace sample reviews
+with genuine Google reviews or a Places API integration). Wire
+`src/app/api/reservations/route.ts` to the booking system or an inbox at
+the marked integration point. Then shoot and drop in photography per
+`PHOTOGRAPHY.md`.
+
+Set `NEXT_PUBLIC_SITE_URL` if deploying somewhere other than
+`https://cartoos.co.uk` (QR codes and canonical URLs derive from it).
 
 ## Stack
 
-Next.js 15 (App Router, fully static) · TypeScript · Tailwind CSS 4 ·
-Framer Motion · Lenis smooth scrolling. JSON-LD restaurant schema, OpenGraph
-metadata, sitemap and robots included. All motion respects
-`prefers-reduced-motion`.
-
-## Development
+Next.js 15 (App Router) · TypeScript · Tailwind CSS 4 · Framer Motion
+(restrained) · Lenis · `qrcode`. All pages static except the reservations
+API route.
 
 ```bash
 npm install
 npm run dev    # develop
-npm run build  # production build (static)
-npm run start  # serve production build
+npm run build  # production build
+npm run start  # serve
 ```

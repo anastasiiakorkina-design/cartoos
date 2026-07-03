@@ -3,15 +3,16 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { SITE } from "@/lib/site";
+import { OpenStatus } from "@/components/open-status";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const LINKS = [
   { label: "Menu", href: "/menu" },
-  { label: "Story", href: "/#story" },
-  { label: "Gallery", href: "/#gallery" },
+  { label: "Order Online", href: "/#order" },
   { label: "Private Dining", href: "/private-dining" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Find Us", href: "/#visit" },
 ];
 
 export function Nav() {
@@ -35,14 +36,12 @@ export function Nav() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ${
-          scrolled && !open
-            ? "bg-ink/85 backdrop-blur-md"
-            : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+          scrolled && !open ? "bg-ink/90 backdrop-blur-md" : "bg-transparent"
         }`}
       >
         <nav
-          className="mx-auto flex max-w-[1680px] items-center justify-between px-6 py-5 md:px-10 md:py-6"
+          className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10 md:py-5"
           aria-label="Primary"
         >
           <Link
@@ -53,7 +52,7 @@ export function Nav() {
             CARTOOS
           </Link>
 
-          <div className="hidden items-center gap-9 lg:flex">
+          <div className="hidden items-center gap-8 lg:flex">
             {LINKS.map((l) => (
               <Link
                 key={l.label}
@@ -63,6 +62,12 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
+            <a
+              href={`tel:${SITE.phone}`}
+              className="link-line type-eyebrow text-cream/80 transition-colors duration-300 hover:text-cream"
+            >
+              {SITE.phoneDisplay}
+            </a>
             <Link
               href="/#reservations"
               className="group relative overflow-hidden border border-copper/70 px-6 py-3"
@@ -77,7 +82,6 @@ export function Nav() {
             </Link>
           </div>
 
-          {/* Mobile toggle */}
           <button
             type="button"
             className="relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-[7px] lg:hidden"
@@ -99,55 +103,54 @@ export function Nav() {
         </nav>
       </header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col justify-end bg-ink px-6 pb-12 lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-end bg-ink px-6 pb-14 lg:hidden"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
-            transition={{ duration: 0.7, ease: EASE }}
+            transition={{ duration: 0.6, ease: EASE }}
           >
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2"
-              style={{
-                background:
-                  "radial-gradient(70% 60% at 50% 100%, rgba(188,122,75,0.22), transparent 75%)",
-              }}
-            />
-            <nav className="relative flex flex-col gap-2" aria-label="Mobile">
-              {[...LINKS, { label: "Reservations", href: "/#reservations" }].map(
-                (l, i) => (
-                  <motion.div
-                    key={l.label}
-                    initial={{ opacity: 0, y: 28 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.7,
-                      delay: 0.25 + i * 0.07,
-                      ease: EASE,
-                    }}
+            <nav className="relative flex flex-col gap-1" aria-label="Mobile">
+              {[
+                ...LINKS,
+                { label: "Reservations", href: "/#reservations" },
+              ].map((l, i) => (
+                <motion.div
+                  key={l.label}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 + i * 0.06, ease: EASE }}
+                >
+                  <Link
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="type-display block py-2.5 text-4xl text-cream"
                   >
-                    <Link
-                      href={l.href}
-                      onClick={() => setOpen(false)}
-                      className="type-display block py-2 text-5xl text-cream"
-                    >
-                      {l.label}
-                    </Link>
-                  </motion.div>
-                ),
-              )}
-              <motion.p
-                className="type-eyebrow mt-8 text-copper-bright"
+                    {l.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                className="mt-8 space-y-3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
+                transition={{ delay: 0.65 }}
               >
-                463 Union Street, Aberdeen
-              </motion.p>
+                <a
+                  href={`tel:${SITE.phone}`}
+                  onClick={() => setOpen(false)}
+                  className="block bg-copper px-6 py-4 text-center"
+                >
+                  <span className="type-eyebrow text-charcoal">
+                    Call {SITE.phoneDisplay}
+                  </span>
+                </a>
+                <p className="type-eyebrow text-cream/50">
+                  <OpenStatus /> · {SITE.address.street}
+                </p>
+              </motion.div>
             </nav>
           </motion.div>
         )}
