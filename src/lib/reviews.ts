@@ -11,18 +11,18 @@ export const REVIEWS = [
     name: "Fiona M.",
     date: "May 2026",
     rating: 5,
-    text: "The côte de boeuf for two, carved at the table, was the best steak we've had in Aberdeen. Booked again before we'd left.",
+    text: "The mixed grill for two is unreal — proper charcoal flavour — and the ribeye was cooked exactly right. Booked again before we'd left.",
   },
   {
     name: "Craig D.",
     date: "April 2026",
     rating: 5,
-    text: "Took the kids on a Sunday — the robot waiter made their week and the ice cream counter is genuinely forty-plus flavours. Grown-up food is serious too.",
+    text: "Took the kids on a Sunday — Bella the robot waiter made their week, and the St. Lucas ice cream counter really is forty-plus flavours. Grown-up food is serious too.",
   },
   {
     name: "Elena R.",
     date: "June 2026",
     rating: 4,
-    text: "Beautiful room, charcoal smell as you walk in, service warm without hovering. Sea bream on the bone was perfect. Book ahead on weekends.",
+    text: "Right on the seafront, charcoal smell as you walk in, and everything halal. The grilled seabass was perfect. Book ahead on weekends.",
   },
 ] as const;

@@ -14,35 +14,38 @@ const HIGHLIGHTS: {
   href: string;
 }[] = [
   {
-    name: "Ribeye, 12oz",
-    price: "£36",
-    detail: "28-day dry-aged Aberdeenshire beef, bone-marrow butter",
-    variant: "steak",
-    shot: "Ribeye resting over embers, side light",
-    href: "/menu#steaks",
-  },
-  {
-    name: "Whole Sea Bream",
-    price: "£24",
-    detail: "Day-boat catch, charred lemon, wild oregano oil",
-    variant: "coast",
-    shot: "Whole bream on the grill bars, smoke visible",
-    href: "/menu#sea",
-  },
-  {
-    name: "Lamb Chops, Wild Thyme",
-    price: "£26",
-    detail: "Scottish lamb over charcoal, smoked sea salt",
+    name: "Mixed Grill for Two",
+    price: "£59.95",
+    detail:
+      "Lamb shish, chicken shish, wings, kofta, chops and ribs over live charcoal",
     variant: "coals",
-    shot: "Lamb chops plated on stone, macro",
+    shot: "Mixed grill platter over coals, smoke visible",
     href: "/menu#grill",
   },
   {
-    name: "Artisan Gelato",
-    price: "£8",
-    detail: "Three scoops from today's forty flavours, churned daily",
+    name: "Ribeye, 12oz",
+    price: "£29.95",
+    detail: "Succulent, marbled and matured — with sautéed potatoes or chips",
+    variant: "steak",
+    shot: "Ribeye resting on the board, side light",
+    href: "/menu#steaks",
+  },
+  {
+    name: "Giotto Tower",
+    price: "£18.95",
+    detail:
+      "Stacked tower of premium beef with Cartoos' secret sauce and onion rings",
+    variant: "stone",
+    shot: "Giotto Tower burger stacked, macro",
+    href: "/menu#steaks",
+  },
+  {
+    name: "St. Lucas Ice Cream",
+    price: "from £7.50",
+    detail:
+      "Over forty award-winning flavours — sundaes, waffles, shakes and cookie dough",
     variant: "dessert",
-    shot: "Gelato counter, three scoops close-up",
+    shot: "Ice cream counter, forty flavours in view",
     href: "/menu#desserts",
   },
 ];

@@ -3,19 +3,22 @@ import { Reveal, RevealLines } from "@/components/reveal";
 
 const PROOF = [
   {
-    stat: "400°",
-    label: "Live charcoal",
-    detail: "Real embers raked by hand through every service — no gas, no shortcuts.",
-  },
-  {
-    stat: "28 days",
-    label: "Dry-aged in-house",
-    detail: "Aberdeenshire beef, butchered and aged on site before it meets the fire.",
+    stat: "100%",
+    label: "Halal kitchen",
+    detail:
+      "Everything on the menu is halal — from the charcoal grill to the turkey bacon at breakfast.",
   },
   {
     stat: "40+",
-    label: "Artisan ice creams",
-    detail: "Churned daily in our dessert atelier — plus a robot host the kids adore.",
+    label: "Award-winning flavours",
+    detail:
+      "Ice cream from St. Lucas of Edinburgh — one of the best in Scotland, served all day.",
+  },
+  {
+    stat: "7 days",
+    label: "09:00 — 22:00",
+    detail:
+      "Breakfast, lunch, dinner and dessert — the grill runs from morning until night.",
   },
 ];
 
@@ -46,11 +49,16 @@ export function Story() {
             />
             <Reveal delay={0.15} className="mt-8 max-w-lg">
               <p className="font-grotesk text-base font-light leading-relaxed text-cream/70">
-                Cartoos brings the Mediterranean north — olive oil, charred
-                lemon, wild herbs — and cooks it with the best of Scotland
-                over live charcoal. A dining room for birthdays and business
-                dinners; a dessert counter and a robot host for the family
-                table.
+                Cartoos brings Turkish and Mediterranean fire to Aberdeen&rsquo;s
+                seafront — shish and kofta over live charcoal, matured Scotch
+                steaks, and a welcome built for everyone at the table.
+              </p>
+              <p className="mt-4 font-grotesk text-base font-light leading-relaxed text-cream/70">
+                Families get something extra: Bella, our robot host, delivers
+                desserts to younger guests — and the ice cream counter carries
+                over forty award-winning flavours from St. Lucas of Edinburgh,
+                alongside fresh waffles, crepes, sizzling brownies and
+                milkshakes.
               </p>
             </Reveal>
 
@@ -86,8 +94,8 @@ export function Story() {
             <Reveal y={60} delay={0.1}>
               <Photo
                 variant="smoke"
-                shot="Dining room at dusk, candlelit tables"
-                alt="The Cartoos dining room"
+                shot="Bella the robot host delivering dessert to a family table"
+                alt="Bella, the Cartoos robot host, serving guests"
                 className="aspect-[3/4] w-full"
               />
             </Reveal>

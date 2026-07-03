@@ -8,9 +8,9 @@ import { StickyCta } from "@/components/sticky-cta";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Menu — Charcoal Grill, Steaks, Seafood & Gelato",
+  title: "Menu — Charcoal Grill, Steaks, Burgers, Breakfast & Ice Cream",
   description:
-    "The Cartoos menu: charcoal-grilled Aberdeenshire steaks, North Sea fish, stone-oven dishes and 40+ artisan ice creams. Vegetarian, vegan and gluten-free marked.",
+    "The full Cartoos menu: halal charcoal grill, shish and kofta, steaks and burgers, seafood, breakfast from 9am, and 40+ award-winning St. Lucas ice creams. Allergens listed on every dish.",
   alternates: { canonical: "/menu" },
 };
 
@@ -49,8 +49,9 @@ export default function MenuPage() {
               className="mt-8 flex flex-col justify-between gap-6 md:flex-row md:items-end"
             >
               <p className="max-w-md font-grotesk text-base font-light leading-relaxed text-cream/65">
-                Six chapters, one grill. At the restaurant? This is the same
-                menu behind the QR code on your table.
+                Breakfast at nine, charcoal all day, ice cream until close —
+                every dish fully halal, allergens listed. At the restaurant?
+                This is the same menu behind the QR code on your table.
               </p>
               <div className="flex flex-wrap gap-4">
                 <CtaButton href="/#reservations" solid className="shrink-0">

@@ -3,24 +3,28 @@ import { Reveal, RevealLines } from "@/components/reveal";
 
 const FAQS = [
   {
+    q: "Is the food halal?",
+    a: "Yes — the entire menu is halal, including breakfast: turkey bacon, turkey rashers and Cartoos' own chicken sausages in place of pork throughout.",
+  },
+  {
     q: "Do I need to book?",
-    a: "Walk-ins are welcome when we have space, but evenings and weekends usually sell out — booking is strongly recommended. Tables of up to 8 need no deposit; for larger groups call us or see Private Dining.",
+    a: "Walk-ins are welcome when we have space, but evenings and weekends usually fill up — booking is recommended. Tables of up to 8 need no deposit; for larger groups call us or see Private Dining.",
   },
   {
     q: "Is Cartoos family-friendly?",
-    a: "Very. We have high chairs, a children's menu from the grill, forty-plus artisan ice cream flavours, and a robot host who delivers desserts to younger guests. Ask for the family area when booking.",
+    a: "Very. We have high chairs, a dedicated kids' menu, and Bella — our robot host — who delivers desserts to younger guests. The ice cream counter carries over forty award-winning flavours from St. Lucas of Edinburgh.",
+  },
+  {
+    q: "Do you serve breakfast?",
+    a: "Yes — from 09:00 every day: full cooked breakfasts (fully halal), omelettes, Benedicts, avocado on toast and fresh bakery, alongside coffee, smoothies and fresh-pressed juices.",
   },
   {
     q: "Can you cater for dietary requirements?",
-    a: "Yes — much of the menu is naturally gluten-free and we mark vegetarian, vegan and nut-containing dishes. Tell us about allergies when booking and the kitchen will cook around them.",
-  },
-  {
-    q: "Is there a dress code?",
-    a: "Smart casual. Come as you are for lunch; most guests dress up a little for dinner.",
+    a: "Yes — vegetarian and vegan dishes are marked on the menu, and every item lists its allergens. Tell us about allergies when booking and the kitchen will cook around them.",
   },
   {
     q: "Where can I park?",
-    a: `On-street parking on ${SITE.address.street} is free after 18:00, and NCP Chapel Street is a three-minute walk. Union Square car park is about ten minutes on foot.`,
+    a: `We're at ${SITE.address.street}, on the seafront opposite Aberdeen Beach. There's free on-street parking along the Esplanade and the Beach Boulevard car parks are a short walk away.`,
   },
   {
     q: "Can I order Cartoos at home?",

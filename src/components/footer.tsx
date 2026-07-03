@@ -89,6 +89,16 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href={SITE.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-line"
+                >
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a
                   href={SITE.reviewsUrl}
                   target="_blank"
                   rel="noreferrer"
@@ -118,10 +128,10 @@ export function Footer() {
         <div className="mt-16 border-t border-cream/10 pt-6">
           <div className="flex flex-col items-start justify-between gap-3 font-grotesk text-xs font-light text-cream/40 md:flex-row md:items-center">
             <p>
-              © {new Date().getFullYear()} {SITE.name} Ltd. {SITE.address.city},
-              Scotland.
+              © {new Date().getFullYear()} {SITE.name}. {SITE.address.street},{" "}
+              {SITE.address.city} {SITE.address.postcode}.
             </p>
-            <p>Charcoal · Stone · Smoke · Sea</p>
+            <p>Fully halal · Charcoal · Smoke · Sea</p>
           </div>
         </div>
       </div>

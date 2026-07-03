@@ -1,9 +1,11 @@
 # CARTOOS — Mediterranean Fire Kitchen
 
-Production-focused website for Cartoos Aberdeen: a premium charcoal grill
-on Union Street. Editorial design in the spirit of HIDE London / The Ivy,
-built so every section either builds trust, showcases food, answers a
-question, or drives a booking.
+Production-focused website for Cartoos Aberdeen: a fully halal
+Turkish-Mediterranean charcoal grill on the beach Esplanade (3-9 Esplanade,
+AB24 5NS), open 09:00–22:00 seven days — breakfast through to St. Lucas
+ice cream. Editorial design in the spirit of HIDE London / The Ivy, built
+so every section either builds trust, showcases food, answers a question,
+or drives a booking.
 
 ## What's here
 
@@ -27,8 +29,10 @@ question, or drives a booking.
   category
 
 **Menu experience**
-- Six categories with animated switching, dietary tags (V/VG/GF/N) and
-  dietary filtering, signature markers, price leaders
+- The restaurant's real menu (~150 dishes) in ten chapters with
+  subsections, animated switching, vegetarian/vegan filtering, the
+  restaurant's published allergen codes on every dish, signature markers
+  and price leaders
 
 **SEO & accessibility**
 - Restaurant JSON-LD (hours, geo, rating, ReserveAction), FAQPage JSON-LD,
@@ -42,10 +46,11 @@ question, or drives a booking.
 
 ## Launch checklist
 
-Search the codebase for `TODO` — all placeholders live in
-`src/lib/site.ts` (phone, exact address/geo, Instagram, delivery partner
+Search the codebase for `TODO` — remaining placeholders live in
+`src/lib/site.ts` (email, exact map pin, social handles, delivery partner
 URLs, review figures) and `src/lib/reviews.ts` (replace sample reviews
-with genuine Google reviews or a Places API integration). Wire
+with genuine Google reviews or a Places API integration). Address, phone
+and opening hours are the restaurant's real details. Wire
 `src/app/api/reservations/route.ts` to the booking system or an inbox at
 the marked integration point. Then shoot and drop in photography per
 `PHOTOGRAPHY.md`.

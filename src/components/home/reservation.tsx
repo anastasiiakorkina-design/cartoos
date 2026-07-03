@@ -4,11 +4,14 @@ import { useMemo, useState, type FormEvent } from "react";
 import { SITE } from "@/lib/site";
 import { Reveal, RevealLines } from "@/components/reveal";
 
-const TIMES = [
-  "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
-  "15:00", "15:30", "16:00", "16:30", "17:00", "17:30",
-  "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00",
-];
+// Bookable slots across the full day — breakfast from 09:00,
+// last seating an hour before the 22:00 close.
+const TIMES = Array.from({ length: 25 }, (_, i) => {
+  const minutes = 9 * 60 + i * 30;
+  const h = String(Math.floor(minutes / 60)).padStart(2, "0");
+  const m = String(minutes % 60).padStart(2, "0");
+  return `${h}:${m}`;
+});
 
 const fieldClass =
   "w-full border border-cream/20 bg-transparent px-4 py-3.5 font-grotesk text-base font-light text-cream outline-none transition-colors duration-300 placeholder:text-cream/35 focus:border-copper-bright [color-scheme:dark]";
@@ -95,9 +98,9 @@ export function Reservation() {
               </span>
             </a>
             <ul className="mt-8 space-y-2 font-grotesk text-sm font-light text-cream/50">
+              <li>· Breakfast to dinner — 09:00 until 22:00, seven days</li>
               <li>· No deposit for tables up to 8</li>
-              <li>· Private dining &amp; large groups — see Private Dining</li>
-              <li>· High chairs and the robot host on request</li>
+              <li>· High chairs — and a visit from Bella, our robot host</li>
             </ul>
           </Reveal>
         </div>

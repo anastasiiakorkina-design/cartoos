@@ -37,7 +37,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          Charcoal grill · {SITE.address.street}, Aberdeen
+          Charcoal grill · Halal · {SITE.address.street}, Aberdeen Beach
         </motion.p>
 
         <h1 className="type-display max-w-5xl text-[clamp(3rem,8.5vw,8rem)]">
@@ -71,8 +71,9 @@ export function Hero() {
         >
           <div className="max-w-md">
             <p className="font-grotesk text-base font-light leading-relaxed text-cream/70">
-              Hand-cut Aberdeenshire steaks, North Sea fish and forty artisan
-              ice creams — cooked over live charcoal, seven days a week.
+              Charcoal-grilled steaks, Turkish-Mediterranean mezze and over
+              forty award-winning ice creams — on Aberdeen's seafront, from
+              breakfast at nine until ten at night.
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
               <CtaButton href="#reservations" solid>

@@ -2,41 +2,100 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { MENU, type DietaryTag } from "@/lib/menu-data";
+import {
+  MENU,
+  type DietaryTag,
+  type MenuCategory,
+  type MenuItem,
+} from "@/lib/menu-data";
 import { Photo } from "@/components/photo";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-
-const TAG_LABELS: Record<DietaryTag, string> = {
-  V: "Vegetarian",
-  VG: "Vegan",
-  GF: "Gluten-free",
-  N: "Contains nuts",
-};
 
 const DIET_FILTERS: { id: DietaryTag | "all"; label: string }[] = [
   { id: "all", label: "Everything" },
   { id: "V", label: "Vegetarian" },
   { id: "VG", label: "Vegan" },
-  { id: "GF", label: "Gluten-free" },
 ];
 
+const ALLERGEN_KEY =
+  "Allergens: C celery · CR crustaceans · E egg · F fish · G gluten · L lupin · M milk · MO molluscs · MU mustard · N nuts · SO soya · SU sulphites";
+
 const CATEGORY_SHOTS: Record<string, string> = {
-  begin: "Mezze spread overhead, warm light",
-  grill: "Skewers over open coals, smoke",
-  steaks: "Côte de boeuf sliced on a board",
-  sea: "Whole bream, charred lemon, on stone",
-  oven: "Flatbread pulled from the stone oven",
-  desserts: "Gelato counter, forty flavours in view",
+  breakfast: "Full English on the pass, morning light",
+  starters: "Mezze spread overhead — hummus, boreks, olives",
+  grill: "Shish and kofta over open coals, smoke",
+  steaks: "Ribeye on the grill bars / Giotto Tower stacked",
+  seafood: "Whole seabass, charred lemon, on stone",
+  mains: "Lamb casserole in the pan, steam rising",
+  kids: "Bella the robot host arriving at a family table",
+  desserts: "St. Lucas ice cream counter, forty flavours in view",
+  drinks: "Milkshakes and fresh juices on the bar",
+  sides: "Peri chips and sides, overhead",
 };
+
+function ItemRow({
+  item,
+  index,
+  reduce,
+}: {
+  item: MenuItem;
+  index: number;
+  reduce: boolean | null;
+}) {
+  return (
+    <motion.li
+      initial={reduce ? false : { opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.05 + Math.min(index, 8) * 0.04, ease: EASE }}
+      className="group border-b border-cream/12 py-5 md:py-6"
+    >
+      <div className="flex items-baseline justify-between gap-5">
+        <h4 className="type-display text-xl text-cream transition-colors duration-300 group-hover:text-copper-bright md:text-2xl">
+          {item.name}
+        </h4>
+        <span
+          aria-hidden
+          className="hidden h-px grow bg-cream/10 transition-colors duration-500 group-hover:bg-copper/40 sm:block"
+        />
+        <p className="type-display shrink-0 text-lg text-sand md:text-xl">
+          £{item.price}
+        </p>
+      </div>
+      {item.description && (
+        <p className="mt-2 max-w-lg font-grotesk text-sm font-light leading-relaxed text-cream/55">
+          {item.description}
+        </p>
+      )}
+      {(item.signature || item.tags?.length || item.allergens?.length) && (
+        <p className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          {item.signature && (
+            <span className="type-eyebrow text-copper-bright/85">Signature</span>
+          )}
+          {item.tags?.map((t) => (
+            <span key={t} className="type-eyebrow text-sage">
+              {t === "V" ? "Vegetarian" : "Vegan"}
+            </span>
+          ))}
+          {item.allergens && item.allergens.length > 0 && (
+            <span className="font-grotesk text-[0.65rem] font-light uppercase tracking-[0.18em] text-cream/35">
+              {item.allergens.join(" · ")}
+            </span>
+          )}
+        </p>
+      )}
+    </motion.li>
+  );
+}
 
 export function MenuExperience() {
   const [active, setActive] = useState(MENU[0].id);
   const [diet, setDiet] = useState<DietaryTag | "all">("all");
   const reduce = useReducedMotion();
-  const category = MENU.find((c) => c.id === active) ?? MENU[0];
+  const category: MenuCategory =
+    MENU.find((c) => c.id === active) ?? MENU[0];
 
-  // Deep links from the homepage and QR cards: /menu#steaks etc.
+  // Deep links from the homepage and QR cards: /menu#grill etc.
   useEffect(() => {
     const apply = () => {
       const hash = window.location.hash.replace("#", "");
@@ -47,11 +106,17 @@ export function MenuExperience() {
     return () => window.removeEventListener("hashchange", apply);
   }, []);
 
-  const items = useMemo(
+  const sections = useMemo(
     () =>
-      diet === "all"
-        ? category.items
-        : category.items.filter((i) => i.tags?.includes(diet)),
+      category.sections
+        .map((s) => ({
+          ...s,
+          items:
+            diet === "all"
+              ? s.items
+              : s.items.filter((i) => i.tags?.includes(diet)),
+        }))
+        .filter((s) => s.items.length > 0),
     [category, diet],
   );
 
@@ -62,7 +127,7 @@ export function MenuExperience() {
         aria-label="Menu categories"
         className="sticky top-[64px] z-30 -mx-6 border-b border-cream/12 bg-ink/92 px-6 backdrop-blur-md md:top-[76px] md:-mx-10 md:px-10"
       >
-        <div className="flex gap-7 overflow-x-auto py-4 [scrollbar-width:none] md:gap-10 [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-7 overflow-x-auto py-4 [scrollbar-width:none] md:gap-9 [&::-webkit-scrollbar]:hidden">
           {MENU.map((c) => (
             <button
               key={c.id}
@@ -110,7 +175,8 @@ export function MenuExperience() {
           </button>
         ))}
         <p className="ml-auto hidden font-grotesk text-xs font-light text-cream/40 md:block">
-          Allergies? Tell us when booking — the kitchen cooks around them.
+          Fully halal · Allergies? Tell us when booking — the kitchen cooks
+          around them.
         </p>
       </div>
 
@@ -144,65 +210,36 @@ export function MenuExperience() {
 
           {/* Items */}
           <div className="lg:col-span-7 lg:pt-1">
-            {items.length === 0 ? (
+            {sections.length === 0 ? (
               <p className="border border-cream/15 p-8 font-grotesk text-sm font-light text-cream/60">
                 Nothing in this chapter matches that filter — but the kitchen
                 can adapt most dishes. Ask when booking.
               </p>
             ) : (
-              <ul>
-                {items.map((item, i) => (
-                  <motion.li
-                    key={item.name}
-                    initial={reduce ? false : { opacity: 0, y: 18 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.5,
-                      delay: 0.05 + i * 0.05,
-                      ease: EASE,
-                    }}
-                    className="group border-b border-cream/12 py-6 first:pt-0 md:py-7"
-                  >
-                    <div className="flex items-baseline justify-between gap-5">
-                      <h3 className="type-display text-2xl text-cream transition-colors duration-300 group-hover:text-copper-bright md:text-3xl">
-                        {item.name}
+              sections.map((section, si) => (
+                <section key={section.title ?? si} className={si > 0 ? "mt-12" : ""}>
+                  {section.title && (
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="type-eyebrow text-copper-bright">
+                        {section.title}
                       </h3>
-                      <span
-                        aria-hidden
-                        className="hidden h-px grow bg-cream/10 transition-colors duration-500 group-hover:bg-copper/40 sm:block"
-                      />
-                      <p className="type-display shrink-0 text-xl text-sand md:text-2xl">
-                        {item.price === "M/P" ? "M/P" : `£${item.price}`}
-                      </p>
+                      {section.note && (
+                        <p className="font-grotesk text-xs font-light text-cream/40">
+                          {section.note}
+                        </p>
+                      )}
                     </div>
-                    <p className="mt-2.5 max-w-lg font-grotesk text-sm font-light leading-relaxed text-cream/55">
-                      {item.description}
-                    </p>
-                    {(item.signature || item.tags) && (
-                      <p className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1">
-                        {item.signature && (
-                          <span className="type-eyebrow text-copper-bright/85">
-                            Signature
-                          </span>
-                        )}
-                        {item.tags?.map((t) => (
-                          <abbr
-                            key={t}
-                            title={TAG_LABELS[t]}
-                            className="type-eyebrow text-cream/40 no-underline"
-                          >
-                            {t}
-                          </abbr>
-                        ))}
-                      </p>
-                    )}
-                  </motion.li>
-                ))}
-              </ul>
+                  )}
+                  <ul className={section.title ? "mt-2" : ""}>
+                    {section.items.map((item, i) => (
+                      <ItemRow key={item.name} item={item} index={i} reduce={reduce} />
+                    ))}
+                  </ul>
+                </section>
+              ))
             )}
-            <p className="mt-6 font-grotesk text-xs font-light text-cream/40">
-              V vegetarian · VG vegan · GF gluten-free · N contains nuts ·
-              M/P market price
+            <p className="mt-6 font-grotesk text-xs font-light leading-relaxed text-cream/40">
+              {ALLERGEN_KEY}
             </p>
           </div>
         </motion.div>

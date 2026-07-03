@@ -63,7 +63,8 @@ export function Visit() {
                 ))}
               </ul>
               <p className="mt-5 font-grotesk text-xs font-light text-charcoal/45">
-                Kitchen closes 45 minutes before the room.
+                Breakfast from 09:00 · kitchen closes 45 minutes before the
+                room.
               </p>
             </Reveal>
 
@@ -92,8 +93,9 @@ export function Visit() {
                 </a>
               </div>
               <p className="mt-5 font-grotesk text-xs font-light leading-relaxed text-charcoal/45">
-                Two minutes from Union Square; on-street parking after 18:00
-                and NCP Chapel Street nearby.
+                On the seafront opposite Aberdeen Beach — free on-street
+                parking along the Esplanade, with the Beach Boulevard car
+                parks close by.
               </p>
             </Reveal>
           </div>
