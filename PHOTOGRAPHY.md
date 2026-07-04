@@ -11,6 +11,30 @@ Esplanade, so use the seafront. Macro over wide. Shoot during a real
 service where possible — hands, steam, movement, families. No
 white-background product shots.
 
+## Hero slideshow — AI generation prompt pack
+
+The homepage slideshow reads from `public/slides/` (see the README
+there for filenames). Until the real shoot, generate these with an AI
+image tool (Midjourney / DALL-E / Imagen). Shared style suffix for all
+five prompts:
+
+> …editorial restaurant photography, dark moody background, warm side
+> lighting, shallow depth of field, charcoal and deep red tones, shot on
+> 85mm, Michelin-guide plating standard, no text, no watermark,
+> landscape 16:10.
+
+| File | Prompt (prepend to the suffix above) |
+| --- | --- |
+| `01-mixed-grill.jpg` | A lavish Turkish mixed grill platter for two — lamb shish, chicken shish, kofta, lamb chops and ribs — over glowing charcoal embers, wisps of smoke rising |
+| `02-ribeye.jpg` | A charcoal-grilled 12oz ribeye steak, deep crust, sliced on a dark stone board, glowing embers out of focus behind |
+| `03-giotto-tower.jpg` | A dramatic stacked gourmet beef burger tower with crispy onion rings on a dark slate, steam rising |
+| `04-seabass.jpg` | A whole charcoal-grilled seabass on the bone with deep char marks, charred lemon halves and wild herbs on warm stone |
+| `05-ice-cream.jpg` | Three scoops of artisan ice cream — pistachio, strawberry, chocolate — beside a golden Belgian waffle with sauce being poured, dark luxurious backdrop |
+
+A first Canva-generated candidate ("Charcoal-Grilled Ribeye on Dark
+Stone Board") already exists in the connected Canva account — export it
+as JPG and save as `02-ribeye.jpg` if it looks right.
+
 ## Homepage
 
 | Slot | Shot | Crop |

@@ -9,6 +9,15 @@ or drives a booking.
 
 ## What's here
 
+**Hero slideshow**
+- Full-bleed signature-dish carousel: crossfade + Ken Burns, per-dish
+  caption with price linking into the menu, timed progress bars,
+  arrow/keyboard navigation, pause on hover/focus, no autoplay under
+  `prefers-reduced-motion`
+- Images resolve at build time from `public/slides/` (see the README
+  there + AI prompt pack in `PHOTOGRAPHY.md`); in-brand cinematic
+  stand-ins render until files are dropped in
+
 **Conversion surface**
 - Reservation flow: validated form → `POST /api/reservations` → reference +
   confirmation state, with phone fallback throughout

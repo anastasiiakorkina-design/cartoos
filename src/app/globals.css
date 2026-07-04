@@ -106,6 +106,29 @@ body {
   background-size: 160px 160px;
 }
 
+/* ————— Hero slideshow ————— */
+@keyframes kenburns {
+  from {
+    transform: scale(1) translate(0, 0);
+  }
+  to {
+    transform: scale(1.08) translate(-1%, -1.2%);
+  }
+}
+.animate-kenburns {
+  animation: kenburns 8s ease-out forwards;
+  will-change: transform;
+}
+
+@keyframes slide-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 /* ————— Slow drift for Plate imagery ————— */
 @keyframes drift {
   0% {
@@ -145,7 +168,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-drift-slow {
+  .animate-drift-slow,
+  .animate-kenburns {
     animation: none;
   }
 }
