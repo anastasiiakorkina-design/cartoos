@@ -1,15 +1,14 @@
+import Image from "next/image";
 import { Plate, type PlateVariant } from "@/components/plate";
 
 /**
- * Photo — a clearly marked placeholder for real restaurant photography.
+ * Photo — a real image when one exists, otherwise a clearly marked
+ * placeholder for restaurant photography.
  *
- * Until the launch shoot is delivered, each slot renders an in-brand
- * generative stand-in (never stock imagery) plus a visible label telling
- * the client exactly which shot belongs there. The full shot list lives
- * in PHOTOGRAPHY.md.
- *
- * To go live: swap the <Plate> for next/image with the delivered asset
- * and set `marked={false}` (or remove the label prop).
+ * Pass `src` (a file under /public) to render the actual image. Without
+ * it, the slot renders an in-brand generative stand-in (never stock)
+ * plus a visible label telling the client exactly which shot belongs
+ * there. The full shot list lives in PHOTOGRAPHY.md.
  */
 export function Photo({
   variant,
@@ -17,6 +16,8 @@ export function Photo({
   alt,
   className = "",
   marked = true,
+  src,
+  sizes = "(max-width: 768px) 100vw, 50vw",
 }: {
   variant: PlateVariant;
   /** Short art direction, e.g. "Ribeye on the pass, natural light" */
@@ -24,7 +25,18 @@ export function Photo({
   alt: string;
   className?: string;
   marked?: boolean;
+  /** Path under /public to a real image, e.g. "/slides/02-ribeye.jpg" */
+  src?: string;
+  sizes?: string;
 }) {
+  if (src) {
+    return (
+      <figure className={`relative overflow-hidden ${className}`}>
+        <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+      </figure>
+    );
+  }
+
   return (
     <figure className={`relative ${className}`}>
       <Plate variant={variant} label={alt} className="h-full w-full" />

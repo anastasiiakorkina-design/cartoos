@@ -21,6 +21,13 @@ const DIET_FILTERS: { id: DietaryTag | "all"; label: string }[] = [
 const ALLERGEN_KEY =
   "Allergens: C celery · CR crustaceans · E egg · F fish · G gluten · L lupin · M milk · MO molluscs · MU mustard · N nuts · SO soya · SU sulphites";
 
+const CATEGORY_SRC: Record<string, string> = {
+  grill: "/slides/01-mixed-grill.jpg",
+  steaks: "/slides/02-ribeye.jpg",
+  seafood: "/slides/04-seabass.jpg",
+  desserts: "/slides/05-ice-cream.jpg",
+};
+
 const CATEGORY_SHOTS: Record<string, string> = {
   breakfast: "Full English on the pass, morning light",
   starters: "Mezze spread overhead — hummus, boreks, olives",
@@ -197,6 +204,8 @@ export function MenuExperience() {
                 variant={category.variant}
                 shot={CATEGORY_SHOTS[category.id] ?? category.label}
                 alt={category.label}
+                src={CATEGORY_SRC[category.id]}
+                sizes="(max-width: 1024px) 0px, 40vw"
                 className="aspect-[4/5] w-full max-lg:hidden"
               />
               <h2 className="type-display mt-0 text-display-sm text-cream lg:mt-8">

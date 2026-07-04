@@ -12,6 +12,7 @@ const HIGHLIGHTS: {
   variant: PlateVariant;
   shot: string;
   href: string;
+  src?: string;
 }[] = [
   {
     name: "Mixed Grill for Two",
@@ -21,6 +22,7 @@ const HIGHLIGHTS: {
     variant: "coals",
     shot: "Mixed grill platter over coals, smoke visible",
     href: "/menu#grill",
+    src: "/slides/01-mixed-grill.jpg",
   },
   {
     name: "Ribeye, 12oz",
@@ -29,6 +31,7 @@ const HIGHLIGHTS: {
     variant: "steak",
     shot: "Ribeye resting on the board, side light",
     href: "/menu#steaks",
+    src: "/slides/02-ribeye.jpg",
   },
   {
     name: "Giotto Tower",
@@ -38,6 +41,7 @@ const HIGHLIGHTS: {
     variant: "stone",
     shot: "Giotto Tower burger stacked, macro",
     href: "/menu#steaks",
+    src: "/slides/03-giotto-tower.jpg",
   },
   {
     name: "St. Lucas Ice Cream",
@@ -47,6 +51,7 @@ const HIGHLIGHTS: {
     variant: "dessert",
     shot: "Ice cream counter, forty flavours in view",
     href: "/menu#desserts",
+    src: "/slides/05-ice-cream.jpg",
   },
 ];
 
@@ -87,6 +92,8 @@ export function MenuHighlights() {
                         variant={h.variant}
                         shot={h.shot}
                         alt={h.name}
+                        src={h.src}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         className="aspect-[4/5] w-full"
                       />
                     </div>
