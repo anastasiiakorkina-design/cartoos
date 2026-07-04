@@ -1,32 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import {
-  Instrument_Serif,
-  Instrument_Sans,
-  Inter_Tight,
-} from "next/font/google";
+import { Bodoni_Moda, Archivo } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SITE, dayName } from "@/lib/site";
 
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
+/**
+ * Typography: Bodoni Moda — a high-contrast didone in the fashion-house
+ * tradition — carries the display voice; Archivo does the quiet work of
+ * labels and body. The optical-size axis keeps hairlines crisp at
+ * masthead sizes.
+ */
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
   style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
+  axes: ["opsz"],
+  variable: "--font-serif-display",
   display: "swap",
 });
 
-const instrumentSans = Instrument_Sans({
-  weight: ["400", "500", "600"],
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-instrument-sans",
-  display: "swap",
-});
-
-const interTight = Inter_Tight({
-  weight: ["300", "400", "500"],
-  subsets: ["latin"],
-  variable: "--font-inter-tight",
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-sans-body",
   display: "swap",
 });
 
@@ -139,7 +134,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${instrumentSerif.variable} ${instrumentSans.variable} ${interTight.variable}`}
+      className={`${bodoni.variable} ${archivo.variable}`}
     >
       <body>
         <a href="#main" className="skip-link">

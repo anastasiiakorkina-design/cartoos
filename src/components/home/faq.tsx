@@ -52,14 +52,14 @@ export function Faq() {
       <div className="mx-auto grid max-w-[1400px] gap-10 px-6 md:px-10 lg:grid-cols-3">
         <div>
           <Reveal>
-            <p className="type-eyebrow text-bronze">Good to know</p>
+            <p className="type-eyebrow text-claret">Good to know</p>
           </Reveal>
           <RevealLines
             as="h2"
             className="type-display mt-5 text-display-sm text-charcoal"
             lines={[
               <span key="l" id="faq-heading">
-                Questions, <em className="text-bronze">answered.</em>
+                Questions, <em className="text-claret">answered.</em>
               </span>,
             ]}
           />
@@ -79,12 +79,12 @@ export function Faq() {
             <Reveal key={f.q} delay={i * 0.05}>
               <details className="group border-b border-charcoal/15">
                 <summary className="flex cursor-pointer list-none items-baseline justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
-                  <h3 className="type-display text-xl text-charcoal transition-colors duration-300 group-hover:text-bronze md:text-2xl">
+                  <h3 className="type-display text-xl text-charcoal transition-colors duration-300 group-hover:text-claret md:text-2xl">
                     {f.q}
                   </h3>
                   <span
                     aria-hidden
-                    className="type-display shrink-0 text-2xl text-bronze transition-transform duration-300 group-open:rotate-45"
+                    className="type-display shrink-0 text-2xl text-claret transition-transform duration-300 group-open:rotate-45"
                   >
                     +
                   </span>

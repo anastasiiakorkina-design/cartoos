@@ -42,7 +42,7 @@ export default function PrivateDiningPage() {
         <header className="relative overflow-hidden pb-20 pt-40 md:pb-28 md:pt-52">
           <div className="mx-auto max-w-[1680px] px-6 md:px-10">
             <Reveal>
-              <p className="type-eyebrow text-copper-bright">Private Dining</p>
+              <p className="type-eyebrow text-rose">Private Dining</p>
             </Reveal>
             <RevealLines
               as="h1"
@@ -80,7 +80,7 @@ export default function PrivateDiningPage() {
                 <span className="type-eyebrow text-cream/35 md:col-span-1">
                   0{i + 1}
                 </span>
-                <h2 className="type-display text-3xl transition-colors duration-500 group-hover:text-copper-bright md:col-span-4 md:text-4xl">
+                <h2 className="type-display text-3xl transition-colors duration-500 group-hover:text-rose md:col-span-4 md:text-4xl">
                   {o.title}
                 </h2>
                 <p className="max-w-md font-grotesk text-sm font-light leading-relaxed text-cream/60 md:col-span-5">

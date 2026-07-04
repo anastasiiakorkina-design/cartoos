@@ -11,14 +11,14 @@ export function Visit() {
     >
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <Reveal>
-          <p className="type-eyebrow text-bronze">Find us</p>
+          <p className="type-eyebrow text-claret">Find us</p>
         </Reveal>
         <RevealLines
           as="h2"
           className="type-display mt-5 text-display-md text-charcoal"
           lines={[
             <span key="l" id="visit-heading">
-              {SITE.address.street}, <em className="text-bronze">Aberdeen.</em>
+              {SITE.address.street}, <em className="text-claret">Aberdeen.</em>
             </span>,
           ]}
         />

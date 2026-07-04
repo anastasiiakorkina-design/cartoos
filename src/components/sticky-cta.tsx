@@ -35,9 +35,9 @@ export function StickyCta() {
       </a>
       <a
         href="/#reservations"
-        className="flex items-center justify-center gap-2 bg-copper py-4"
+        className="flex items-center justify-center gap-2 bg-lacquer py-4"
       >
-        <span className="type-eyebrow text-charcoal">Book a Table</span>
+        <span className="type-eyebrow text-cream">Book a Table</span>
       </a>
     </div>
   );

@@ -45,7 +45,7 @@ export default function MenuQrPage() {
             className="flex flex-col items-center border border-dashed border-charcoal/30 bg-cream px-8 py-10 text-center print:break-inside-avoid"
           >
             <p className="type-display text-3xl text-charcoal">CARTOOS</p>
-            <p className="type-eyebrow mt-2 text-bronze">{SITE.tagline}</p>
+            <p className="type-eyebrow mt-2 text-claret">{SITE.tagline}</p>
             <div className="mt-7 bg-cream">
               <MenuQr
                 dark="#181818"

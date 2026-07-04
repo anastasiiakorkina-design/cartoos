@@ -51,12 +51,12 @@ function ItemRow({
       className="group border-b border-cream/12 py-5 md:py-6"
     >
       <div className="flex items-baseline justify-between gap-5">
-        <h4 className="type-display text-xl text-cream transition-colors duration-300 group-hover:text-copper-bright md:text-2xl">
+        <h4 className="type-display text-xl text-cream transition-colors duration-300 group-hover:text-rose md:text-2xl">
           {item.name}
         </h4>
         <span
           aria-hidden
-          className="hidden h-px grow bg-cream/10 transition-colors duration-500 group-hover:bg-copper/40 sm:block"
+          className="hidden h-px grow bg-cream/10 transition-colors duration-500 group-hover:bg-lacquer/50 sm:block"
         />
         <p className="type-display shrink-0 text-lg text-sand md:text-xl">
           £{item.price}
@@ -70,7 +70,7 @@ function ItemRow({
       {(item.signature || item.tags?.length || item.allergens?.length) && (
         <p className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
           {item.signature && (
-            <span className="type-eyebrow text-copper-bright/85">Signature</span>
+            <span className="type-eyebrow text-rose/85">Signature</span>
           )}
           {item.tags?.map((t) => (
             <span key={t} className="type-eyebrow text-sage">
@@ -136,7 +136,7 @@ export function MenuExperience() {
               aria-current={c.id === active}
               className={`type-eyebrow relative shrink-0 pb-1 transition-colors duration-300 ${
                 c.id === active
-                  ? "text-copper-bright"
+                  ? "text-rose"
                   : "text-cream/45 hover:text-cream/80"
               }`}
             >
@@ -144,7 +144,7 @@ export function MenuExperience() {
               {c.id === active && (
                 <motion.span
                   layoutId="menu-underline"
-                  className="absolute inset-x-0 -bottom-[17px] h-px bg-copper-bright"
+                  className="absolute inset-x-0 -bottom-[17px] h-px bg-rose"
                   transition={{ duration: 0.45, ease: EASE }}
                 />
               )}
@@ -167,7 +167,7 @@ export function MenuExperience() {
             aria-pressed={diet === f.id}
             className={`border px-4 py-2 font-grotesk text-xs font-medium uppercase tracking-[0.18em] transition-colors duration-300 ${
               diet === f.id
-                ? "border-copper bg-copper text-charcoal"
+                ? "border-lacquer bg-lacquer text-cream"
                 : "border-cream/20 text-cream/55 hover:border-cream/45 hover:text-cream/85"
             }`}
           >
@@ -220,7 +220,7 @@ export function MenuExperience() {
                 <section key={section.title ?? si} className={si > 0 ? "mt-12" : ""}>
                   {section.title && (
                     <div className="flex items-baseline justify-between gap-4">
-                      <h3 className="type-eyebrow text-copper-bright">
+                      <h3 className="type-eyebrow text-rose">
                         {section.title}
                       </h3>
                       {section.note && (

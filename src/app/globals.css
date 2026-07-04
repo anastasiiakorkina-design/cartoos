@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  /* ————— CARTOOS colour system ————— */
+  /* ————— CARTOOS colour system —————
+     Deep luxury reds (claret, lacquer) lead — Cartoos' signature —
+     grounded by charcoal and cream, with copper-gold as fine detail. */
   --color-olive: #30362f;
   --color-olive-deep: #262b25;
   --color-cream: #f6f2ea;
@@ -9,6 +11,10 @@
   --color-charcoal: #181818;
   --color-charcoal-warm: #201d1a;
   --color-ink: #101010;
+  --color-claret: #6f1d1b;
+  --color-wine: #451311;
+  --color-lacquer: #9b2226;
+  --color-rose: #d0685e;
   --color-bronze: #9a6a3a;
   --color-copper: #bc7a4b;
   --color-copper-bright: #d99a68;
@@ -17,9 +23,9 @@
   --color-smoke: #a8a49b;
 
   /* ————— Typography ————— */
-  --font-display: var(--font-instrument-serif), "Times New Roman", serif;
-  --font-grotesk: var(--font-inter-tight), system-ui, sans-serif;
-  --font-body: var(--font-instrument-sans), system-ui, sans-serif;
+  --font-display: var(--font-serif-display), "Didot", "Bodoni MT", serif;
+  --font-grotesk: var(--font-sans-body), system-ui, sans-serif;
+  --font-body: var(--font-sans-body), system-ui, sans-serif;
 
   /* ————— Motion ————— */
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
@@ -41,13 +47,13 @@ body {
 }
 
 ::selection {
-  background: var(--color-bronze);
+  background: var(--color-claret);
   color: var(--color-cream);
 }
 
 /* ————— Accessibility ————— */
 :focus-visible {
-  outline: 2px solid var(--color-copper);
+  outline: 2px solid var(--color-lacquer);
   outline-offset: 3px;
 }
 
@@ -57,8 +63,8 @@ body {
   left: 1rem;
   z-index: 100;
   padding: 0.85rem 1.5rem;
-  background: var(--color-copper);
-  color: var(--color-charcoal);
+  background: var(--color-lacquer);
+  color: var(--color-cream);
   font-family: var(--font-grotesk);
   font-size: 0.75rem;
   font-weight: 500;
@@ -73,16 +79,17 @@ body {
 /* ————— Editorial display type ————— */
 .type-display {
   font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 0.94;
-  letter-spacing: -0.015em;
+  font-weight: 460;
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  font-optical-sizing: auto;
 }
 
 .type-eyebrow {
   font-family: var(--font-grotesk);
   font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
 }
 

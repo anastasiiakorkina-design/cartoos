@@ -9,7 +9,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 function Stars({ value }: { value: number }) {
   return (
-    <span aria-hidden className="tracking-[0.15em] text-copper-bright">
+    <span aria-hidden className="tracking-[0.15em] text-rose">
       {"★".repeat(Math.round(value))}
     </span>
   );
@@ -26,13 +26,13 @@ export function Hero() {
         className="absolute inset-x-[-10%] bottom-[-12%] h-[60%]"
         style={{
           background:
-            "radial-gradient(58% 60% at 50% 100%, rgba(188,122,75,0.34), rgba(154,106,58,0.12) 55%, transparent 80%)",
+            "radial-gradient(58% 60% at 50% 100%, rgba(155,34,38,0.5), rgba(111,29,27,0.18) 55%, transparent 80%), radial-gradient(30% 32% at 50% 100%, rgba(217,154,104,0.3), transparent 75%)",
         }}
       />
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-12 pt-32 md:px-10 md:pb-16">
         <motion.p
-          className="type-eyebrow mb-7 text-copper-bright"
+          className="type-eyebrow mb-7 text-rose"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
@@ -41,7 +41,7 @@ export function Hero() {
         </motion.p>
 
         <h1 className="type-display max-w-5xl text-[clamp(3rem,8.5vw,8rem)]">
-          <span className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
+          <span className="block overflow-hidden pt-[0.12em] -mt-[0.12em] pb-[0.16em] -mb-[0.16em]">
             <motion.span
               className="block"
               initial={reduce ? false : { y: "108%" }}
@@ -51,9 +51,9 @@ export function Hero() {
               Mediterranean fire,
             </motion.span>
           </span>
-          <span className="block overflow-hidden pb-[0.12em] -mb-[0.06em]">
+          <span className="block overflow-hidden pt-[0.12em] -mt-[0.12em] pb-[0.16em] -mb-[0.16em]">
             <motion.span
-              className="block italic text-sand"
+              className="block italic text-rose"
               initial={reduce ? false : { y: "108%" }}
               animate={{ y: "0%" }}
               transition={{ duration: 1, delay: 0.28, ease: EASE }}

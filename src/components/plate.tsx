@@ -33,11 +33,11 @@ const PLATES = {
   /* Glowing coals — the heart of the kitchen */
   coals: {
     from: "#0e0d0c",
-    to: "#241a13",
+    to: "#241412",
     shapes: [
-      { cx: 30, cy: 78, rx: 16, ry: 12, fill: "#bc7a4b", opacity: 0.75, blur: "l" },
+      { cx: 30, cy: 78, rx: 16, ry: 12, fill: "#9b2226", opacity: 0.7, blur: "l" },
       { cx: 58, cy: 88, rx: 20, ry: 13, fill: "#d99a68", opacity: 0.6, blur: "l" },
-      { cx: 76, cy: 74, rx: 10, ry: 8, fill: "#9a6a3a", opacity: 0.8, blur: "m" },
+      { cx: 76, cy: 74, rx: 10, ry: 8, fill: "#6f1d1b", opacity: 0.85, blur: "m" },
       { cx: 44, cy: 82, rx: 4, ry: 3, fill: "#f0b07a", opacity: 0.9, blur: "s" },
       { cx: 66, cy: 90, rx: 3, ry: 2.5, fill: "#ffd9ae", opacity: 0.85, blur: "s" },
       { cx: 24, cy: 88, rx: 3, ry: 2, fill: "#e8a76f", opacity: 0.8, blur: "s" },
@@ -128,12 +128,12 @@ const PLATES = {
   /* Smoke against black — the signature texture */
   smoke: {
     from: "#101010",
-    to: "#1f1e1c",
+    to: "#1f1c1b",
     angle: 200,
     shapes: [
       { cx: 42, cy: 66, rx: 24, ry: 40, fill: "#a8a49b", opacity: 0.14, blur: "l", rotate: 16 },
       { cx: 58, cy: 36, rx: 18, ry: 30, fill: "#d9c9b5", opacity: 0.1, blur: "l", rotate: -18 },
-      { cx: 50, cy: 92, rx: 20, ry: 10, fill: "#bc7a4b", opacity: 0.3, blur: "l" },
+      { cx: 50, cy: 92, rx: 20, ry: 10, fill: "#9b2226", opacity: 0.35, blur: "l" },
       { cx: 46, cy: 96, rx: 5, ry: 3, fill: "#e8a76f", opacity: 0.55, blur: "m" },
     ],
   },

@@ -5,9 +5,9 @@ export function PrintTrigger() {
     <button
       type="button"
       onClick={() => window.print()}
-      className="border border-copper bg-copper px-6 py-3 transition-opacity hover:opacity-90"
+      className="border border-lacquer bg-lacquer px-6 py-3 transition-opacity hover:opacity-90"
     >
-      <span className="type-eyebrow text-charcoal">Print cards</span>
+      <span className="type-eyebrow text-cream">Print cards</span>
     </button>
   );
 }

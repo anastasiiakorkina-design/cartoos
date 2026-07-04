@@ -58,6 +58,14 @@ the marked integration point. Then shoot and drop in photography per
 Set `NEXT_PUBLIC_SITE_URL` if deploying somewhere other than
 `https://cartoos.co.uk` (QR codes and canonical URLs derive from it).
 
+## Design system
+
+- **Type**: Bodoni Moda (display — high-contrast didone, optical sizing)
+  with Archivo for labels and body
+- **Colour**: Cartoos' signature deep reds lead — claret `#6F1D1B`,
+  wine `#451311`, lacquer `#9B2226`, rose `#D0685E` — grounded by
+  charcoal/ink and warm cream, with copper-gold as fine detail
+
 ## Stack
 
 Next.js 15 (App Router) · TypeScript · Tailwind CSS 4 · Framer Motion

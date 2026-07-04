@@ -70,13 +70,13 @@ export function Nav() {
             </a>
             <Link
               href="/#reservations"
-              className="group relative overflow-hidden border border-copper/70 px-6 py-3"
+              className="group relative overflow-hidden border border-lacquer px-6 py-3"
             >
               <span
                 aria-hidden
-                className="absolute inset-0 translate-y-full bg-copper transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"
+                className="absolute inset-0 translate-y-full bg-lacquer transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"
               />
-              <span className="type-eyebrow relative text-copper-bright transition-colors duration-500 group-hover:text-charcoal">
+              <span className="type-eyebrow relative text-rose transition-colors duration-500 group-hover:text-cream">
                 Book a Table
               </span>
             </Link>
@@ -141,9 +141,9 @@ export function Nav() {
                 <a
                   href={`tel:${SITE.phone}`}
                   onClick={() => setOpen(false)}
-                  className="block bg-copper px-6 py-4 text-center"
+                  className="block bg-lacquer px-6 py-4 text-center"
                 >
-                  <span className="type-eyebrow text-charcoal">
+                  <span className="type-eyebrow text-cream">
                     Call {SITE.phoneDisplay}
                   </span>
                 </a>

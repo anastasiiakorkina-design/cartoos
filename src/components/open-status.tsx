@@ -73,7 +73,7 @@ export function OpenStatus({ className = "" }: { className?: string }) {
       <span
         aria-hidden
         className={`h-1.5 w-1.5 rounded-full ${
-          status.state === "open" ? "bg-sage" : "bg-copper-bright"
+          status.state === "open" ? "bg-sage" : "bg-rose"
         }`}
       />
       {status.state === "open"

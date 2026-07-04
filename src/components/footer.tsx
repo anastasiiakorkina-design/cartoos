@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="type-display text-3xl">CARTOOS</p>
-            <p className="type-eyebrow mt-3 text-copper-bright">
+            <p className="type-eyebrow mt-3 text-rose">
               {SITE.tagline}
             </p>
             <Link

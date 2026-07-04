@@ -57,14 +57,14 @@ export function MenuHighlights() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <p className="type-eyebrow text-bronze">From the fire</p>
+              <p className="type-eyebrow text-claret">From the fire</p>
             </Reveal>
             <RevealLines
               as="h2"
               className="type-display mt-5 text-display-md text-charcoal"
               lines={[
                 <span key="l" id="highlights-heading">
-                  What we&rsquo;re <em className="text-bronze">known for.</em>
+                  What we&rsquo;re <em className="text-claret">known for.</em>
                 </span>,
               ]}
             />
@@ -92,10 +92,10 @@ export function MenuHighlights() {
                     </div>
                   </div>
                   <div className="mt-4 flex items-baseline justify-between gap-4 border-b border-charcoal/15 pb-4">
-                    <h3 className="type-display text-2xl text-charcoal transition-colors duration-300 group-hover:text-bronze">
+                    <h3 className="type-display text-2xl text-charcoal transition-colors duration-300 group-hover:text-claret">
                       {h.name}
                     </h3>
-                    <p className="type-display text-xl text-bronze">{h.price}</p>
+                    <p className="type-display text-xl text-claret">{h.price}</p>
                   </div>
                   <p className="mt-3 font-grotesk text-sm font-light leading-relaxed text-charcoal/60">
                     {h.detail}

@@ -25,12 +25,12 @@ export default function MenuPage() {
             className="absolute inset-x-[-10%] bottom-[-40%] h-[70%]"
             style={{
               background:
-                "radial-gradient(55% 55% at 50% 100%, rgba(188,122,75,0.24), transparent 78%)",
+                "radial-gradient(55% 55% at 50% 100%, rgba(155,34,38,0.42), rgba(111,29,27,0.14) 55%, transparent 80%)",
             }}
           />
           <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
             <Reveal>
-              <p className="type-eyebrow text-copper-bright">
+              <p className="type-eyebrow text-rose">
                 The menu · changes with the season
               </p>
             </Reveal>
@@ -39,7 +39,7 @@ export default function MenuPage() {
               className="type-display mt-6 text-display-lg"
               lines={[
                 "Fire, stone,",
-                <em key="i" className="text-sand">
+                <em key="i" className="text-rose">
                   smoke &amp; sea.
                 </em>,
               ]}

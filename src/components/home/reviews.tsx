@@ -6,7 +6,7 @@ function Stars({ value, className = "" }: { value: number; className?: string })
   return (
     <span
       aria-label={`${value} out of 5 stars`}
-      className={`tracking-[0.18em] text-copper-bright ${className}`}
+      className={`tracking-[0.18em] text-rose ${className}`}
     >
       {"★".repeat(value)}
       <span className="text-cream/20">{"★".repeat(5 - value)}</span>
@@ -18,7 +18,7 @@ export function Reviews() {
   return (
     <section
       aria-labelledby="reviews-heading"
-      className="bg-olive-deep py-20 text-cream md:py-32"
+      className="bg-wine py-20 text-cream md:py-32"
     >
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">

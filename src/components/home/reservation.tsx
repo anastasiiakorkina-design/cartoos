@@ -14,7 +14,7 @@ const TIMES = Array.from({ length: 25 }, (_, i) => {
 });
 
 const fieldClass =
-  "w-full border border-cream/20 bg-transparent px-4 py-3.5 font-grotesk text-base font-light text-cream outline-none transition-colors duration-300 placeholder:text-cream/35 focus:border-copper-bright [color-scheme:dark]";
+  "w-full border border-cream/20 bg-transparent px-4 py-3.5 font-grotesk text-base font-light text-cream outline-none transition-colors duration-300 placeholder:text-cream/35 focus:border-rose [color-scheme:dark]";
 const labelClass =
   "type-eyebrow mb-2 block text-cream/60";
 
@@ -70,14 +70,14 @@ export function Reservation() {
         className="absolute inset-x-[-10%] bottom-[-15%] h-[55%]"
         style={{
           background:
-            "radial-gradient(55% 55% at 50% 100%, rgba(188,122,75,0.22), transparent 78%)",
+            "radial-gradient(55% 55% at 50% 100%, rgba(111,29,27,0.5), rgba(155,34,38,0.14) 55%, transparent 80%)",
         }}
       />
 
       <div className="relative mx-auto grid max-w-[1400px] gap-14 px-6 md:px-10 lg:grid-cols-5 lg:gap-20">
         <div className="lg:col-span-2">
           <Reveal>
-            <p className="type-eyebrow text-copper-bright">Reservations</p>
+            <p className="type-eyebrow text-rose">Reservations</p>
           </Reveal>
           <RevealLines
             as="h2"
@@ -91,7 +91,7 @@ export function Reservation() {
             </p>
             <a
               href={`tel:${SITE.phone}`}
-              className="mt-6 inline-flex items-center gap-3 border border-cream/25 px-6 py-3.5 transition-colors duration-300 hover:border-copper-bright"
+              className="mt-6 inline-flex items-center gap-3 border border-cream/25 px-6 py-3.5 transition-colors duration-300 hover:border-rose"
             >
               <span className="type-eyebrow text-cream">
                 Call {SITE.phoneDisplay}
@@ -109,9 +109,9 @@ export function Reservation() {
           {status.kind === "done" ? (
             <div
               role="status"
-              className="flex h-full flex-col justify-center border border-copper/50 p-8 md:p-12"
+              className="flex h-full flex-col justify-center border border-rose/40 p-8 md:p-12"
             >
-              <p className="type-eyebrow text-copper-bright">Request received</p>
+              <p className="type-eyebrow text-rose">Request received</p>
               <p className="type-display mt-4 text-3xl md:text-4xl">
                 {status.date} at {status.time}, {status.guests}{" "}
                 {Number(status.guests) === 1 ? "guest" : "guests"}.
@@ -214,7 +214,7 @@ export function Reservation() {
                 <p
                   id="reservation-error"
                   role="alert"
-                  className="mt-5 border-l-2 border-copper-bright pl-4 font-grotesk text-sm text-copper-bright"
+                  className="mt-5 border-l-2 border-rose pl-4 font-grotesk text-sm text-rose"
                 >
                   {status.message}
                 </p>
@@ -223,13 +223,13 @@ export function Reservation() {
               <button
                 type="submit"
                 disabled={status.kind === "submitting"}
-                className="group relative mt-8 w-full overflow-hidden border border-copper bg-copper px-8 py-5 disabled:opacity-60 sm:w-auto"
+                className="group relative mt-8 w-full overflow-hidden border border-lacquer bg-lacquer px-8 py-5 disabled:opacity-60 sm:w-auto"
               >
                 <span
                   aria-hidden
                   className="absolute inset-0 translate-y-full bg-cream transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"
                 />
-                <span className="type-eyebrow relative text-charcoal">
+                <span className="type-eyebrow relative text-cream transition-colors duration-500 group-hover:text-claret">
                   {status.kind === "submitting" ? "Sending…" : "Request Reservation"}
                 </span>
               </button>

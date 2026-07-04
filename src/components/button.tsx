@@ -19,7 +19,7 @@ export function CtaButton({
   className?: string;
 }) {
   const rest = solid
-    ? "border-copper bg-copper text-charcoal"
+    ? "border-lacquer bg-lacquer text-cream"
     : tone === "dark"
       ? "border-cream/30 text-cream"
       : "border-charcoal/30 text-charcoal";
@@ -29,7 +29,7 @@ export function CtaButton({
       ? "bg-cream"
       : "bg-charcoal";
   const hoverText = solid
-    ? "group-hover/cta:text-charcoal"
+    ? "group-hover/cta:text-claret"
     : tone === "dark"
       ? "group-hover/cta:text-charcoal"
       : "group-hover/cta:text-cream";
