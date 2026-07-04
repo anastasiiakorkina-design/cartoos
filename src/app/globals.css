@@ -11,10 +11,10 @@
   --color-charcoal: #181818;
   --color-charcoal-warm: #201d1a;
   --color-ink: #101010;
-  --color-claret: #6f1d1b;
-  --color-wine: #451311;
-  --color-lacquer: #9b2226;
-  --color-rose: #d0685e;
+  --color-claret: #9d1428;
+  --color-wine: #43070f;
+  --color-lacquer: #c8102e;
+  --color-rose: #ee6c63;
   --color-bronze: #9a6a3a;
   --color-copper: #bc7a4b;
   --color-copper-bright: #d99a68;
@@ -23,7 +23,7 @@
   --color-smoke: #a8a49b;
 
   /* ————— Typography ————— */
-  --font-display: var(--font-serif-display), "Didot", "Bodoni MT", serif;
+  --font-display: var(--font-serif-display), Georgia, serif;
   --font-grotesk: var(--font-sans-body), system-ui, sans-serif;
   --font-body: var(--font-sans-body), system-ui, sans-serif;
 
@@ -79,10 +79,11 @@ body {
 /* ————— Editorial display type ————— */
 .type-display {
   font-family: var(--font-display);
-  font-weight: 460;
-  line-height: 1.04;
-  letter-spacing: 0.005em;
+  font-weight: 480;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
   font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 30;
 }
 
 .type-eyebrow {

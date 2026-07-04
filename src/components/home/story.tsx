@@ -49,9 +49,10 @@ export function Story() {
             />
             <Reveal delay={0.15} className="mt-8 max-w-lg">
               <p className="font-grotesk text-base font-light leading-relaxed text-cream/70">
-                Cartoos brings Turkish and Mediterranean fire to Aberdeen&rsquo;s
-                seafront — shish and kofta over live charcoal, matured Scotch
-                steaks, and a welcome built for everyone at the table.
+                Since 2021, Cartoos has brought Turkish and Mediterranean fire
+                to Aberdeen&rsquo;s seafront — shish and kofta over live
+                charcoal, matured Scotch steaks, and a welcoming atmosphere
+                built for everyone at the table.
               </p>
               <p className="mt-4 font-grotesk text-base font-light leading-relaxed text-cream/70">
                 Families get something extra: Bella, our robot host, delivers

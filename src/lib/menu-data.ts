@@ -720,7 +720,7 @@ export const MENU: MenuCategory[] = [
   },
   {
     id: "desserts",
-    label: "Desserts & Ice Cream",
+    label: "I Love Ice Cream",
     intro:
       "Award-winning ice cream from St. Lucas of Edinburgh — over forty flavours, one of the best in Scotland — plus fresh waffles, crepes, sundaes and sizzling brownies.",
     variant: "dessert",

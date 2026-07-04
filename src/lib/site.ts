@@ -7,12 +7,12 @@
 
 export const SITE = {
   name: "Cartoos",
-  tagline: "Mediterranean Fire Kitchen",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cartoos.co.uk",
+  tagline: "Grill House & Desserts",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.cartoosaberdeen.co.uk",
 
   phone: "+441224589132",
   phoneDisplay: "01224 589132",
-  email: "reservations@cartoos.co.uk", // TODO: confirm
+  email: "info@cartoosaberdeen.co.uk", // TODO: confirm
 
   address: {
     street: "3-9 Esplanade",
@@ -24,8 +24,8 @@ export const SITE = {
   // Google Business Profile.
   geo: { lat: 57.1565, lng: -2.0795 },
 
-  instagram: "https://instagram.com/cartoos.aberdeen", // TODO: confirm handle
-  facebook: "https://facebook.com/cartoos.aberdeen", // TODO: confirm handle
+  instagram: "https://www.instagram.com/cartoosaberdeen/",
+  facebook: "https://www.facebook.com/CartoosAberdeen/",
 
   // Google links derive from the Business Profile — swap the query for the
   // profile's canonical URLs when available.

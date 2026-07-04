@@ -1,19 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Archivo } from "next/font/google";
+import { Fraunces, Archivo } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SITE, dayName } from "@/lib/site";
 
 /**
- * Typography: Bodoni Moda — a high-contrast didone in the fashion-house
- * tradition — carries the display voice; Archivo does the quiet work of
- * labels and body. The optical-size axis keeps hairlines crisp at
- * masthead sizes.
+ * Typography: Fraunces — a warm, characterful display serif whose soft
+ * "old-style" curves suit a grill house that is also a dessert parlour —
+ * with Archivo doing the quiet work of labels and body. Optical sizing
+ * keeps it crisp from masthead to menu line.
  */
-const bodoni = Bodoni_Moda({
+const fraunces = Fraunces({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz"],
+  axes: ["opsz", "SOFT"],
   variable: "--font-serif-display",
   display: "swap",
 });
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
     default:
-      "Cartoos Aberdeen — Mediterranean Charcoal Grill | Book a Table",
+      "Cartoos Grill House & Desserts — Aberdeen Beach | Book a Table",
     template: "%s — Cartoos Aberdeen",
   },
   description:
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     "book a table Aberdeen",
   ],
   openGraph: {
-    title: "Cartoos — Mediterranean Fire Kitchen, Aberdeen Beach",
+    title: "Cartoos Grill House & Desserts — Aberdeen Beach",
     description:
       "Halal charcoal grill on the Esplanade — steaks, shish and kofta, breakfast from 9am, and 40+ award-winning ice creams. Book a table.",
     locale: "en_GB",
@@ -134,7 +134,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${bodoni.variable} ${archivo.variable}`}
+      className={`${fraunces.variable} ${archivo.variable}`}
     >
       <body>
         <a href="#main" className="skip-link">

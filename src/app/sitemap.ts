@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://cartoos.co.uk";
+  const base = SITE.url;
   return [
     { url: base, changeFrequency: "monthly", priority: 1 },
     { url: `${base}/menu`, changeFrequency: "weekly", priority: 0.9 },

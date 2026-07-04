@@ -57,7 +57,7 @@ export function MenuHighlights() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <p className="type-eyebrow text-claret">From the fire</p>
+              <p className="type-eyebrow text-claret">Dining at Cartoos</p>
             </Reveal>
             <RevealLines
               as="h2"

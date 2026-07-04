@@ -1,4 +1,4 @@
-# CARTOOS — Mediterranean Fire Kitchen
+# CARTOOS — Grill House & Desserts
 
 Production-focused website for Cartoos Aberdeen: a fully halal
 Turkish-Mediterranean charcoal grill on the beach Esplanade (3-9 Esplanade,
@@ -56,15 +56,17 @@ the marked integration point. Then shoot and drop in photography per
 `PHOTOGRAPHY.md`.
 
 Set `NEXT_PUBLIC_SITE_URL` if deploying somewhere other than
-`https://cartoos.co.uk` (QR codes and canonical URLs derive from it).
+`https://www.cartoosaberdeen.co.uk` (QR codes and canonical URLs derive
+from it).
 
 ## Design system
 
-- **Type**: Bodoni Moda (display — high-contrast didone, optical sizing)
-  with Archivo for labels and body
-- **Colour**: Cartoos' signature deep reds lead — claret `#6F1D1B`,
-  wine `#451311`, lacquer `#9B2226`, rose `#D0685E` — grounded by
-  charcoal/ink and warm cream, with copper-gold as fine detail
+- **Type**: Fraunces (display — warm, characterful serif, optical sizing +
+  soft axis) with Archivo for labels and body
+- **Colour**: Cartoos' signature red leads — crimson `#C8102E` for CTAs,
+  deep crimson `#9D1428` on light grounds, dark wine `#43070F` section,
+  rose `#EE6C63` on dark — over charcoal/ink and warm cream, with
+  copper-gold as fine detail
 
 ## Stack
 
